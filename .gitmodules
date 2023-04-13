@@ -4,3 +4,6 @@
 [submodule "playbooks/ehi-proxmaas"]
 	path = playbooks/ehi-proxmaas
 	url = https://github.com/application-research/ehi-proxmaas.git
+[submodule "playbooks/haproxy-cluster-playbook"]
+	path = playbooks/haproxy-cluster-playbook
+	url = https://github.com/application-research/haproxy-cluster-playbook.git
