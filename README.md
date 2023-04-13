@@ -42,12 +42,12 @@ This stage establishes a full installation of ProxMAAS and allows you to start d
 ## Stage 4: Main EHI Deployments + Quality of Life
 Once the groundwork has been laid, on top of the groundfloor, you can deploy the Rest of Estuary™️
 
-* s04-01-ehi-db - Deploys the main EHI PostgreSQL cluster for various databases (other than API) to run on.
-* s04-02-ehi-api-db - Deploys the EHI PostgreSQL cluster for the Estuary API to run on.
-* s04-03-ehi-api-nsq - Deploys the EHI NSQ cluster for the Estuary API to run on.
-* s04-04-ehi-api - Deploys the Estuary API cluster.
-* s04-05-ehi-edge - Deploys the Estuary Edge cluster.
-* s04-06-phos-k8s - Deploys the Phosphophyllite Kubernetes cluster.
+* s04-01-ehi-db/ - Deploys the main EHI PostgreSQL cluster for various databases (other than API) to run on.
+* s04-02-ehi-api-db/ - Deploys the EHI PostgreSQL cluster for the Estuary API to run on.
+* s04-03-ehi-api-nsq/ - Deploys the EHI NSQ cluster for the Estuary API to run on.
+* s04-04-ehi-api/ - Deploys the Estuary API cluster.
+* s04-05-ehi-edge/ - Deploys the Estuary Edge cluster.
+* s04-06-phos-k8s/ - Deploys the Phosphophyllite Kubernetes cluster.
 
 # TODOs/coming soon
 * A script that allows you to edit the VLANs and IP addressing schemes of the entire EHI stack and output a new set of instructions.

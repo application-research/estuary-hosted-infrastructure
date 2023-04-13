@@ -1,0 +1,17 @@
+---
+# For each playbook in the playbooks directory except update-playbooks, update the playbook using Git.
+- name: Update playbooks using Git
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Update playbooks using Git # noqa command-instead-of-module
+      ansible.builtin.command: git pull
+      args:
+        chdir: "{{ playbook_dir }}/../"
+      register: update_playbooks
+      changed_when: update_playbooks.stdout != "Already up to date."
+
+    - name: Display a message if playbooks were updated # noqa no-handler
+      ansible.builtin.debug:
+        msg: "Playbooks updated."
+      when: update_playbooks is changed

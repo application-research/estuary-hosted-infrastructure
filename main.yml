@@ -1,0 +1,26 @@
+---
+# Deploys the entire Estuary Hosted Infrastructure stack.
+
+- import_playbook: playbooks/update-playbooks/main.yml # s00-00-update-playbooks/
+# - import_playbook: playbooks/name.yml # s00-01-routerconfigs/
+# - import_playbook: playbooks/name.yml # s00-02-switchconfigs/
+# - import_playbook: playbooks/name.yml # s00-03-physical/
+# - import_playbook: playbooks/name.yml # s00-04-disable-lacp/
+# - import_playbook: playbooks/name.yml # s01-01-proxmox/
+# - import_playbook: playbooks/name.yml # s01-02-ceph/
+- import_playbook: playbooks/moosefs-playbook/site.yml # s01-03-moosefs/
+# - import_playbook: playbooks/name.yml # s02-01-genesis/
+# - import_playbook: playbooks/name.yml # s02-02-dns/
+# - import_playbook: playbooks/name.yml # s02-03-tls-bastion/
+# - import_playbook: playbooks/name.yml # s02-04-haproxy/
+# - import_playbook: playbooks/name.yml # s02-05-ebi-db/
+# - import_playbook: playbooks/name.yml # s02-06-ebi/
+# - import_playbook: playbooks/name.yml # s02-07-bastion/
+# - import_playbook: playbooks/name.yml # s02-08-nautobot/
+# - import_playbook: playbooks/name.yml # s03-01-maas/
+# - import_playbook: playbooks/name.yml # s04-01-ehi-db/
+# - import_playbook: playbooks/name.yml # s04-02-ehi-api-db/
+# - import_playbook: playbooks/name.yml # s04-03-ehi-api-nsq/
+# - import_playbook: playbooks/name.yml # s04-04-ehi-api/
+# - import_playbook: playbooks/name.yml # s04-05-ehi-edge/
+# - import_playbook: playbooks/name.yml # s04-06-phos-k8s/
