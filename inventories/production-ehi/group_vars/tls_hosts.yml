@@ -1,0 +1,13 @@
+---
+# Environment name - determines which secrets file will be loaded
+env_name: production
+
+# Domain to get a wildcard certificate for. Don't include the *. at the start.
+dns_domain: "estuary.tech"
+
+# Email used for Let's Encrypt renewal notices. Should match the name of your Cloudflare account.
+cloudflare_email: wings@protocol.ai
+
+# Automatically accept the Let's Encrypt terms of service
+# Read the ToS and change this to true.
+LE_ACCEPT_TOS: true
