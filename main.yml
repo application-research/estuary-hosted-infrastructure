@@ -26,8 +26,8 @@
 
 - name: Deploy production HAProxy cluster
   import_playbook: playbooks/haproxy-cluster-playbook/site.yml
-   vars:
-     refresh_inventory: true
+  vars:
+    refresh_inventory: true
 
 # - import_playbook: playbooks/name.yml # s02-06-ebi-db/
 
