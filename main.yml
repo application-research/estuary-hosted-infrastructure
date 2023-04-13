@@ -17,6 +17,18 @@
 # - import_playbook: playbooks/moosefs-playbook/site.yml # s02-03-moosefs/
 # - import_playbook: playbooks/name.yml # s02-04-tls-bastion/
 # - import_playbook: playbooks/name.yml # s02-05-haproxy/
+### s02-05-haproxy - Production HAProxy Cluster (HALCluster)
+
+- name: Create production HAProxy cluster
+  ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
+  vars:
+    machine_details: prod-haproxy
+
+- name: Deploy production HAProxy cluster
+  import_playbook: playbooks/haproxy-cluster-playbook/site.yml
+   vars:
+     refresh_inventory: true
+
 # - import_playbook: playbooks/name.yml # s02-06-ebi-db/
 
 ### s02-07-ebi - Estuary Bootstrap Infrastructure
