@@ -1,7 +1,8 @@
 ---
 # Deploys the entire Estuary Hosted Infrastructure stack.
+# - import_playbook: playbooks/update-playbooks/main.yml # s00-00-update-playbooks/
+# - import_playbook: playbooks/install-galaxy-requirements/main.yml # s00-00-install-galaxy-requirements/
 
-- import_playbook: playbooks/update-playbooks/main.yml # s00-00-update-playbooks/
 # - import_playbook: playbooks/name.yml # s00-01-routerconfigs/
 # - import_playbook: playbooks/name.yml # s00-02-switchconfigs/
 # - import_playbook: playbooks/name.yml # s00-03-physical/

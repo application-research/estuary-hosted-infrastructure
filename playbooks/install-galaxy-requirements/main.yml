@@ -1,0 +1,19 @@
+---
+# For each playbook in the playbooks directory, install all requirements
+- name: Install Galaxy requirements for each playbook
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Install Ansible Galaxy requirements # noqa command-instead-of-module no-changed-when
+      ansible.builtin.command: ansible-galaxy install -r requirements.yml
+      args:
+        chdir: "{{ item }}"
+      register: install_galaxy_reqs
+      loop: "{{ lookup('fileglob', 'playbooks/*', wantlist=True) }}"
+      when: item is directory
+      # changed_when: install_galaxy_reqs.stdout != "Already up to date."
+
+    - name: Display a message if Galaxy installed new requirements # noqa no-handler
+      ansible.builtin.debug:
+        msg: "Ansible Galaxy requirements installed/updated."
+      when: install_galaxy_reqs is changed

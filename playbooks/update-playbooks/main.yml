@@ -7,8 +7,10 @@
     - name: Update playbooks using Git # noqa command-instead-of-module
       ansible.builtin.command: git pull
       args:
-        chdir: "{{ playbook_dir }}/../"
+        chdir: "{{ item }}"
       register: update_playbooks
+      loop: "{{ lookup('fileglob', 'playbooks/*', wantlist=True) }}"
+      when: item is directory
       changed_when: update_playbooks.stdout != "Already up to date."
 
     - name: Display a message if playbooks were updated # noqa no-handler

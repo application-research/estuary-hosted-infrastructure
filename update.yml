@@ -1,0 +1,39 @@
+---
+- name: Update playbooks and install Ansible Galaxy requirements for the stack
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Get a list of directories in the playbooks folder
+      ansible.builtin.find:
+        paths: playbooks
+        recurse: false
+        file_type: directory
+      register: directories
+
+    - name: Update playbooks using Git # noqa command-instead-of-module
+      ansible.builtin.command: git pull
+      args:
+        chdir: "{{ item.path }}"
+      register: update_playbooks
+      loop: "{{ directories.files }}"
+      when: item.path is directory
+      changed_when: update_playbooks.stdout != "Already up to date."
+
+    - name: Display a message if playbooks were updated # noqa no-handler
+      ansible.builtin.debug:
+        msg: "Playbooks updated."
+      when: update_playbooks is changed
+
+    - name: Install Ansible Galaxy requirements # noqa command-instead-of-module no-changed-when
+      ansible.builtin.command: ansible-galaxy install -r requirements.yml
+      args:
+        chdir: "{{ item.path }}"
+      register: install_galaxy_reqs
+      loop: "{{ directories.files }}"
+      when: item.path is directory
+      # changed_when: install_galaxy_reqs.stdout != "Already up to date."
+
+    - name: Display a message if Galaxy installed new requirements # noqa no-handler
+      ansible.builtin.debug:
+        msg: "Ansible Galaxy requirements installed/updated."
+      when: install_galaxy_reqs is changed
