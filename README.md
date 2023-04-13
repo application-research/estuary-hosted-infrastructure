@@ -3,7 +3,7 @@ The main repository for EHI. This will eventually link out to everything in the 
 
 EHI is separated into stages, which you can mix and match at your desire but should usually be followed in order.
 
-To run everything in one big sweep, run ansible-playbook main.yml in the root of this repository.
+To run everything in one big sweep, copy `vars/secrets.yml.dist` to `vars/secrets.yml`, fill it out, then run ansible-playbook main.yml in the root of this repository.
 
 ## Stage 0: Primitives
 These are required to be set up before you can deploy EHI and "unfurl" the cluster.
