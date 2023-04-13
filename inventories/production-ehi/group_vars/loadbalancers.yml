@@ -1,0 +1,12 @@
+---
+# Environment name - determines which secrets file will be loaded
+env_name: production
+
+# Floating IPs used for the HAProxies.
+loadbalancer_floating_ips: [
+  10.24.0.2,
+  10.24.0.3,
+  10.24.0.4
+]
+
+corosync_bindnet_interface: 'ens18'

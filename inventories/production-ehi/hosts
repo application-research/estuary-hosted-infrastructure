@@ -3,3 +3,6 @@
 
 [proxmox_clients]
 localhost
+
+[loadbalancer]
+prod-haproxy[01:03].estuary.tech
