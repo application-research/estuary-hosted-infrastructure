@@ -1,31 +1,40 @@
 ---
 # Deploys the entire Estuary Hosted Infrastructure stack.
-# - import_playbook: playbooks/update-playbooks/main.yml # s00-00-update-playbooks/
-# - import_playbook: playbooks/install-galaxy-requirements/main.yml # s00-00-install-galaxy-requirements/
 
+## Stage 0 payloads - Primitives
 # - import_playbook: playbooks/name.yml # s00-01-routerconfigs/
 # - import_playbook: playbooks/name.yml # s00-02-switchconfigs/
 # - import_playbook: playbooks/name.yml # s00-03-physical/
 # - import_playbook: playbooks/name.yml # s00-04-disable-lacp/
+
+## Stage 1 payloads - Groundfloor
 # - import_playbook: playbooks/name.yml # s01-01-proxmox/
 # - import_playbook: playbooks/name.yml # s01-02-ceph/
+
+## Stage 2 payloads - Estuary Bootstrap Infrastructure + Genesis
 # - import_playbook: playbooks/name.yml # s02-01-genesis/
 # - import_playbook: playbooks/name.yml # s02-02-dns/
-- name: Create dev-demo VMs
-  ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
-  vars:
-    machine_details: dev-demo
+# - import_playbook: playbooks/moosefs-playbook/site.yml # s02-03-moosefs/
+# - import_playbook: playbooks/name.yml # s02-04-tls-bastion/
+# - import_playbook: playbooks/name.yml # s02-05-haproxy/
+# - import_playbook: playbooks/name.yml # s02-06-ebi-db/
 
+### s02-07-ebi - Estuary Bootstrap Infrastructure
 - name: Create dev-ebi-k8s control plane nodes
   ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
   vars:
     machine_details: dev-ebi-k8s-m
 
-# - import_playbook: playbooks/moosefs-playbook/site.yml # s02-03-moosefs/
-# - import_playbook: playbooks/name.yml # s02-04-tls-bastion/
-# - import_playbook: playbooks/name.yml # s02-05-haproxy/
-# - import_playbook: playbooks/name.yml # s02-06-ebi-db/
-# - import_playbook: playbooks/name.yml # s02-07-ebi/
+- name: Create prod-ebi-k8s control plane nodes
+  ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
+  vars:
+    machine_details: prod-ebi-k8s-m
+
+# Deploy Estuary Bootstrap Infrastructure
+# - import_playbook: playbooks/ehi-bootstrap-playbook/site.yml
+#   vars:
+#     refresh_inventory: true
+
 # - import_playbook: playbooks/name.yml # s02-08-bastion/
 # - import_playbook: playbooks/name.yml # s02-09-nautobot/
 # - import_playbook: playbooks/name.yml # s03-01-maas/
