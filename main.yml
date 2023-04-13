@@ -24,6 +24,11 @@
   vars:
     machine_details: prod-haproxy
 
+- name: Re-deploy TLS certificates using Wildcard TLS Playbook
+  import_playbook: playbooks/wildcard-tls-playbook/site.yml
+  vars:
+    refresh_inventory: true
+
 - name: Deploy production HAProxy cluster
   import_playbook: playbooks/haproxy-cluster-playbook/site.yml
   vars:

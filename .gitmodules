@@ -7,3 +7,6 @@
 [submodule "playbooks/haproxy-cluster-playbook"]
 	path = playbooks/haproxy-cluster-playbook
 	url = https://github.com/application-research/haproxy-cluster-playbook.git
+[submodule "inventories/wildcard-tls-playbook"]
+	path = inventories/wildcard-tls-playbook
+	url = https://github.com/application-research/wildcard-tls-playbook.git
