@@ -3,6 +3,8 @@ The main repository for EHI. This will eventually link out to everything in the 
 
 EHI is separated into stages, which you can mix and match at your desire but should usually be followed in order.
 
+To run everything in one big sweep, run ansible-playbook main.yml in the root of this repository.
+
 ## Stage 0: Primitives
 These are required to be set up before you can deploy EHI and "unfurl" the cluster.
 
@@ -44,7 +46,8 @@ Once the groundwork has been laid, on top of the groundfloor, you can deploy the
 * s04-02-ehi-api-db - Deploys the EHI PostgreSQL cluster for the Estuary API to run on.
 * s04-03-ehi-api-nsq - Deploys the EHI NSQ cluster for the Estuary API to run on.
 * s04-04-ehi-api - Deploys the Estuary API cluster.
-* s04-05-phos-k8s - Deploys the Phosphophyllite Kubernetes cluster.
+* s04-05-ehi-edge - Deploys the Estuary Edge cluster.
+* s04-06-phos-k8s - Deploys the Phosphophyllite Kubernetes cluster.
 
 # TODOs/coming soon
 * A script that allows you to edit the VLANs and IP addressing schemes of the entire EHI stack and output a new set of instructions.
