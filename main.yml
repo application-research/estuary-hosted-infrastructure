@@ -9,15 +9,15 @@
 # - import_playbook: playbooks/name.yml # s00-04-disable-lacp/
 # - import_playbook: playbooks/name.yml # s01-01-proxmox/
 # - import_playbook: playbooks/name.yml # s01-02-ceph/
-- import_playbook: playbooks/moosefs-playbook/site.yml # s01-03-moosefs/
 # - import_playbook: playbooks/name.yml # s02-01-genesis/
 # - import_playbook: playbooks/name.yml # s02-02-dns/
-# - import_playbook: playbooks/name.yml # s02-03-tls-bastion/
-# - import_playbook: playbooks/name.yml # s02-04-haproxy/
-# - import_playbook: playbooks/name.yml # s02-05-ebi-db/
-# - import_playbook: playbooks/name.yml # s02-06-ebi/
-# - import_playbook: playbooks/name.yml # s02-07-bastion/
-# - import_playbook: playbooks/name.yml # s02-08-nautobot/
+- import_playbook: playbooks/moosefs-playbook/site.yml # s02-03-moosefs/
+# - import_playbook: playbooks/name.yml # s02-04-tls-bastion/
+# - import_playbook: playbooks/name.yml # s02-05-haproxy/
+# - import_playbook: playbooks/name.yml # s02-06-ebi-db/
+# - import_playbook: playbooks/name.yml # s02-07-ebi/
+# - import_playbook: playbooks/name.yml # s02-08-bastion/
+# - import_playbook: playbooks/name.yml # s02-09-nautobot/
 # - import_playbook: playbooks/name.yml # s03-01-maas/
 # - import_playbook: playbooks/name.yml # s04-01-ehi-db/
 # - import_playbook: playbooks/name.yml # s04-02-ehi-api-db/
