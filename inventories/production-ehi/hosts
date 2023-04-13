@@ -1,0 +1,5 @@
+[moosefs]
+10.24.0.2[01:08]
+
+[proxmox_clients]
+localhost
