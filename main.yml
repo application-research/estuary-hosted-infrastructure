@@ -19,7 +19,7 @@
 - name: Create Demo machines
   ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
   vars:
-    machine_details: dev-ebi-k8s-m
+    machine_details: "dev-ebi-k8s-m"
 
 # - import_playbook: playbooks/moosefs-playbook/site.yml # s02-03-moosefs/
 # - import_playbook: playbooks/name.yml # s02-04-tls-bastion/
