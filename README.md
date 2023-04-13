@@ -13,6 +13,8 @@ These are required to be set up before you can deploy EHI and "unfurl" the clust
 
 ## Deploying EHI
 ### Preparation
+Clone this repo with `git clone --recurse-submodules`
+
 Set up your SSH settings to use the root user by default for all of the Proxmox hosts.
 
 Connect to the MikroTik router via Wireguard.

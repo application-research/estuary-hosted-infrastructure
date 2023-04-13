@@ -11,6 +11,7 @@
 # - import_playbook: playbooks/name.yml # s01-02-ceph/
 # - import_playbook: playbooks/name.yml # s02-01-genesis/
 # - import_playbook: playbooks/name.yml # s02-02-dns/
+- import_playbook: playbooks/ehi-proxmaas/spawn.yml # spawn
 - import_playbook: playbooks/moosefs-playbook/site.yml # s02-03-moosefs/
 # - import_playbook: playbooks/name.yml # s02-04-tls-bastion/
 # - import_playbook: playbooks/name.yml # s02-05-haproxy/
