@@ -11,15 +11,15 @@
 # - import_playbook: playbooks/name.yml # s01-02-ceph/
 # - import_playbook: playbooks/name.yml # s02-01-genesis/
 # - import_playbook: playbooks/name.yml # s02-02-dns/
-- name: Create Demo machines
+- name: Create dev-demo VMs
   ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
   vars:
     machine_details: dev-demo
 
-- name: Create Demo machines
+- name: Create dev-ebi-k8s control plane nodes
   ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
   vars:
-    machine_details: "dev-ebi-k8s-m"
+    machine_details: dev-ebi-k8s-m
 
 # - import_playbook: playbooks/moosefs-playbook/site.yml # s02-03-moosefs/
 # - import_playbook: playbooks/name.yml # s02-04-tls-bastion/
