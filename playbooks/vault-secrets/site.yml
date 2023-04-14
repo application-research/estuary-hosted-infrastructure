@@ -44,15 +44,21 @@
         path: "{{ temp_key_file.dest }}"
         state: absent
 
-    - name: "Load the vaulted variables based on our environment name"
+    - name: Load the vaulted variables based on our environment name
       ansible.builtin.include_vars:
         file: "{{ playbook_dir }}/secrets/environments/{{ ehi_environment_name }}.yml"
-      register: loaded_vars
 
-    - name: Set variables for all hosts # noqa run-once
+    - name: Push facts that are needed for tls_bastion
       ansible.builtin.set_fact:
-        "{{ item.key }}": "{{ item.value }}"
-      loop: "{{ loaded_vars.ansible_facts | dict2items }}"
-      run_once: true
-      delegate_to: "{{ inventory_hostname }}"
+        cf_zone_api_token: "{{ cf_zone_api_token }}"
+        cf_dns_api_token: "{{ cf_zone_id }}"
+        pfx_password: "{{ pfx_password }}"
+        private_key_material_repo: "{{ private_key_material_repo }}"
+      delegate_to: "{{ groups['tls_bastion'] }}"
       delegate_facts: true
+
+    # - name: Push facts that are needed for MooseFS
+    #   ansible.builtin.set_fact:
+    #     mfsmaster: "{{ mfsmaster }}"
+    #   delegate_to: "{{ groups['moosefs'] }}"
+    #   delegate_facts: true
