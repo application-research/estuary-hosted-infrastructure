@@ -3,10 +3,27 @@
   hosts: localhost
   connection: local
   gather_facts: false
-  # This repo will FAIL TO RUN if you do not have vaulted_secrets_repository defined!
+  # This repo will FAIL TO RUN if you do not have vaulted_secrets_repository, vaulted_secrets_repository_key and vaulted_secrets_repository_passphrase defined!
 
   # Retrieve the secrets from the repository
   tasks:
+    - name: Create temporary private key file
+      ansible.builtin.copy:
+        content: "{{ vaulted_secrets_repository_key }}"
+        dest: "/tmp/temp_git_key"
+        mode: "0600"
+      register: temp_key_file
+
+    - name: Start ssh-agent
+      ansible.builtin.shell: eval $(ssh-agent)
+      register: ssh_agent
+
+    - name: Add private key to ssh-agent
+      ansible.builtin.expect:
+        command: ssh-add /tmp/temp_git_key
+        responses:
+          "Enter passphrase for /tmp/temp_git_key:": "{{ vaulted_secrets_repository_passphrase }}"
+
     - name: "Pull the secrets from the repository"
       ansible.builtin.git:
         repo: "{{ vaulted_secrets_repository }}"
