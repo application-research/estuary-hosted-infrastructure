@@ -14,6 +14,12 @@
         mode: "0600"
       register: temp_key_file
 
+    - name: Ensure ~/.ssh exists
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/.ssh"
+        state: directory
+        mode: '0700'
+
     - name: Add GitHub's host keys to known_hosts # noqa line-length
       ansible.builtin.known_hosts:
         name: github.com
