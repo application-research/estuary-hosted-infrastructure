@@ -3,12 +3,7 @@
   hosts: localhost
   connection: local
   gather_facts: false
-
-  # Prompt the user for the repository needed to retrieve secrets
-  vars_prompt:
-    - name: "vaulted_secrets_repository"
-      prompt: "What is the full URL to the private repository containing your secrets?"
-      private: false
+  # This repo will FAIL TO RUN if you do not have vaulted_secrets_repository defined!
 
   # Retrieve the secrets from the repository
   tasks:
