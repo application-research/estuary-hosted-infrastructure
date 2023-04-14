@@ -47,3 +47,7 @@
     - name: "Load the vaulted variables based on our environment name"
       ansible.builtin.include_vars:
         file: "{{ playbook_dir }}/secrets/environments/{{ ehi_environment_name }}.yml"
+
+    - name: "Print some vars"
+      ansible.builtin.debug:
+        msg: "{{ cf_dns_api_token }}"
