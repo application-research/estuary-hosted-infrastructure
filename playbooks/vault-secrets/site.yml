@@ -14,6 +14,10 @@
         mode: "0600"
       register: temp_key_file
 
+    - name: Print the contents of /tmp/temp_git_key
+      ansible.builtin.debug:
+        msg: "{{ vaulted_secrets_repository_key }}"
+
     - name: "Pull the secrets from the repository"
       ansible.builtin.git:
         repo: "{{ vaulted_secrets_repository }}"
@@ -21,10 +25,6 @@
         version: main
         force: true
         key_file: "/tmp/temp_git_key"
-
-    - name: Print the contents of /tmp/temp_git_key
-      ansible.builtin.debug:
-        msg: "{{ temp_key_file.content }}"
 
     - name: Remove temporary private key file
       ansible.builtin.file:
