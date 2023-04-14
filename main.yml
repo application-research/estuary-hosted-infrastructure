@@ -32,12 +32,12 @@
     machine_details: dev-haproxy
 
 - name: Deploy TLS certificates using Wildcard TLS Playbook
-  import_playbook: playbooks/wildcard-tls-playbook/site.yml
+  ansible.builtin.import_playbook: playbooks/wildcard-tls-playbook/site.yml
 #  vars:
 #    refresh_inventory: true
 
 - name: Deploy production HAProxy cluster
-  import_playbook: playbooks/haproxy-cluster-playbook/site.yml
+  ansible.builtin.import_playbook: playbooks/haproxy-cluster-playbook/site.yml
   vars:
     refresh_inventory: true
 
