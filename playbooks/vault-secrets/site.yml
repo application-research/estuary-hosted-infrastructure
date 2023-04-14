@@ -20,7 +20,7 @@
         dest: "{{ playbook_dir }}/secrets"
         version: main
         force: true
-        key_file: /tmp/temp_git_key
+        key_file: "/tmp/temp_git_key"
 
     - name: Remove temporary private key file
       ansible.builtin.file:
