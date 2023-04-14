@@ -1,7 +1,7 @@
 ---
 # Deploys the entire Estuary Hosted Infrastructure stack.
-- name: Load vaulted secrets
-  ansible.builtin.import_playbook: playbooks/vault-secrets/site.yml
+# - name: Load vaulted secrets
+#   ansible.builtin.import_playbook: playbooks/vault-secrets/site.yml
 ## Stage 0 payloads - Primitives
 # - import_playbook: playbooks/name.yml # s00-01-routerconfigs/
 # - import_playbook: playbooks/name.yml # s00-02-switchconfigs/
@@ -20,6 +20,15 @@
 # - import_playbook: playbooks/name.yml # s02-05-haproxy/
 ### s02-05-haproxy - Production HAProxy Cluster (HALCluster)
 
+- name: Create production HAProxy cluster
+  ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
+  vars:
+    machine_details: prod-haproxy
+
+- name: Create dev HAProxy cluster
+  ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
+  vars:
+    machine_details: dev-haproxy
 - name: Create production HAProxy cluster
   ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
   vars:
