@@ -43,6 +43,6 @@
         path: "{{ temp_key_file.dest }}"
         state: absent
 
-    - name: "Load the vaulted variables based on the name of our inventory"
+    - name: "Load the vaulted variables based on our environment name"
       ansible.builtin.include_vars:
-        file: "{{ playbook_dir }}/secrets/environments/{{ inventory_dir | basename }}.yml"
+        file: "{{ playbook_dir }}/secrets/environments/{{ ehi_environment_name }}.yml"
