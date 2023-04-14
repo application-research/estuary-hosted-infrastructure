@@ -14,43 +14,18 @@
         mode: "0600"
       register: temp_key_file
 
-    - name: Start ssh-agent  # noqa no-changed-when
-      ansible.builtin.shell: eval $(ssh-agent)
-      register: ssh_agent
-      changed_when: false
-
-    - name: Add private key to ssh-agent
-      ansible.builtin.shell: |
-        eval "$(ssh-agent -s)"
-        set -o pipefail && echo "{{ vaulted_secrets_repository_passphrase }}" | ssh-add /tmp/temp_git_key
-      environment:
-        SSH_AGENT_PID: "{{ ssh_agent.stdout | regex_search('Agent pid (\\d+)', '\\1') }}"
-        SSH_AUTH_SOCK: "{{ ssh_agent.stdout | regex_search('SSH_AUTH_SOCK=(.*?);', '\\1') }}"
-      register: ssh_add
-      failed_when: "'Identity added' not in ssh_add.stdout"
-      changed_when: false
-
     - name: "Pull the secrets from the repository"
       ansible.builtin.git:
         repo: "{{ vaulted_secrets_repository }}"
         dest: "{{ playbook_dir }}/secrets"
         version: main
         force: true
-      environment:
-        SSH_AGENT_PID: "{{ ssh_agent.stdout | regex_search('Agent pid (\\d+)', '\\1') }}"
-        SSH_AUTH_SOCK: "{{ ssh_agent.stdout | regex_search('SSH_AUTH_SOCK=(.*?);', '\\1') }}"
+        key_file: /tmp/temp_git_key
 
     - name: Remove temporary private key file
       ansible.builtin.file:
         path: "{{ temp_key_file.dest }}"
         state: absent
-
-    - name: Kill ssh-agent # noqa command-instead-of-shell
-      ansible.builtin.shell: ssh-agent -k
-      environment:
-        SSH_AGENT_PID: "{{ ssh_agent.stdout | regex_search('Agent pid (\\d+)', '\\1') }}"
-        SSH_AUTH_SOCK: "{{ ssh_agent.stdout | regex_search('SSH_AUTH_SOCK=(.*?);', '\\1') }}"
-      changed_when: false
 
     - name: "Load the vaulted variables based on the name of our inventory"
       ansible.builtin.include_vars:
