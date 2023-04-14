@@ -48,20 +48,3 @@
       ansible.builtin.include_vars:
         file: "{{ playbook_dir }}/secrets/environments/{{ ehi_environment_name }}.yml"
 
-    - name: Push facts that are needed for tls_bastion
-      ansible.builtin.set_fact:
-        cf_zone_api_token: "{{ cf_zone_api_token }}"
-        cf_dns_api_token: "{{ cf_zone_id }}"
-        pfx_password: "{{ pfx_password }}"
-        private_key_material_repo: "{{ private_key_material_repo }}"
-      delegate_to: "{{ item }}"
-      delegate_facts: true
-      loop: "{{ groups['tls_bastion'] }}"
-      no_log: true
-
-    # - name: Push facts that are needed for MooseFS
-    #   ansible.builtin.set_fact:
-    #     mfsmaster: "{{ mfsmaster }}"
-    #   delegate_to: "{{ item }}"
-    #   delegate_facts: true
-    #   loop: "{{ groups['moosefs'] }}"
