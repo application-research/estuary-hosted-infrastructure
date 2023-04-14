@@ -34,7 +34,6 @@
   ansible.builtin.import_playbook: playbooks/wildcard-tls-playbook/site.yml
   vars:
     refresh_inventory: true
-  limit: tls_bastion,loadbalancer
 
 - name: Deploy production HAProxy cluster
   ansible.builtin.import_playbook: playbooks/haproxy-cluster-playbook/site.yml
