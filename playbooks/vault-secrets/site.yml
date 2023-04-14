@@ -56,6 +56,7 @@
         private_key_material_repo: "{{ private_key_material_repo }}"
       delegate_to: "{{ groups['tls_bastion'] }}"
       delegate_facts: true
+      no_log: true
 
     # - name: Push facts that are needed for MooseFS
     #   ansible.builtin.set_fact:
