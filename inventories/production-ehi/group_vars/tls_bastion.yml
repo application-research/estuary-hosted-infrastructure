@@ -11,3 +11,7 @@ cloudflare_email: wings@protocol.ai
 # Automatically accept the Let's Encrypt terms of service
 # Read the ToS and change this to true.
 LE_ACCEPT_TOS: true
+
+# Git details used for updates to the TLS materials directories
+tls_materials_git_username: "Automatic Estuary TLS Updates"
+tls_materials_git_email: "pki@estuary.tech"
