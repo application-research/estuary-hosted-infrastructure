@@ -1,7 +1,7 @@
 ---
 # Deploys the entire Estuary Hosted Infrastructure stack.
 - name: Load vaulted secrets
-  ansible.builtin.import_playbook: playbooks/vaulted-secrets/site.yml
+  ansible.builtin.import_playbook: playbooks/vault-secrets/site.yml
 
 ## Stage 0 payloads - Primitives
 # - import_playbook: playbooks/name.yml # s00-01-routerconfigs/

@@ -18,3 +18,7 @@
         dest: "{{ playbook_dir }}/secrets"
         version: main
         force: true
+
+    - name: "Load the vaulted variables based on the name of our inventory"
+      ansible.builtin.include_vars:
+        file: "{{ playbook_dir }}/secrets/environments/{{ inventory_dir | basename }}.yml"
