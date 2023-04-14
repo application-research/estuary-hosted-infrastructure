@@ -1,0 +1,15 @@
+---
+version: 2
+
+build_arg_defaults:
+  ANSIBLE_GALAXY_CLI_COLLECTION_OPTS: '--pre'
+
+dependencies:
+  python: requirements.txt
+
+images:
+  base_image:
+    name: quay.io/ansible/awx-ee:latest
+  builder_image:
+    name: quay.io/ansible/ansible-builder:latest
+

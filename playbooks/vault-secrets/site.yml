@@ -32,6 +32,7 @@
 
     - name: "Pull the secrets from the repository"
       ansible.builtin.git:
+        accept_hostkey: true
         repo: "{{ vaulted_secrets_repository }}"
         dest: "{{ playbook_dir }}/secrets"
         version: main
