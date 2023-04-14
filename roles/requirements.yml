@@ -4,6 +4,3 @@ roles:
   - name: zorlin.moosefs
     src: https://github.com/Zorlin/ansible-role-moosefs
     version: main
-
-collections:
-  - name: community.general
