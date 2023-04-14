@@ -21,20 +21,18 @@
 # - import_playbook: playbooks/name.yml # s02-05-haproxy/
 ### s02-05-haproxy - Production HAProxy Cluster (HALCluster)
 
-- name: Create production HAProxy cluster
-  ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
-  vars:
-    machine_details: prod-haproxy
+# - name: Create production HAProxy cluster
+#   ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
+#   vars:
+#     machine_details: prod-haproxy
 
-- name: Create dev HAProxy cluster
-  ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
-  vars:
-    machine_details: dev-haproxy
+# - name: Create dev HAProxy cluster
+#   ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
+#   vars:
+#     machine_details: dev-haproxy
 
 - name: Deploy TLS certificates using Wildcard TLS Playbook
   ansible.builtin.import_playbook: playbooks/wildcard-tls-playbook/site.yml
-#  vars:
-#    refresh_inventory: true
 
 - name: Deploy production HAProxy cluster
   ansible.builtin.import_playbook: playbooks/haproxy-cluster-playbook/site.yml
