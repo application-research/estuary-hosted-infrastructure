@@ -2,7 +2,8 @@
 # Deploys the entire Estuary Hosted Infrastructure stack.
 - name: Load vaulted secrets
   ansible.builtin.import_playbook: playbooks/vault-secrets/site.yml
-
+- name: Deploy TLS certificates using Wildcard TLS Playbook
+  ansible.builtin.import_playbook: playbooks/wildcard-tls-playbook/site.yml
 ## Stage 0 payloads - Primitives
 # - import_playbook: playbooks/name.yml # s00-01-routerconfigs/
 # - import_playbook: playbooks/name.yml # s00-02-switchconfigs/
@@ -30,9 +31,6 @@
 #   ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
 #   vars:
 #     machine_details: dev-haproxy
-
-- name: Deploy TLS certificates using Wildcard TLS Playbook
-  ansible.builtin.import_playbook: playbooks/wildcard-tls-playbook/site.yml
 
 - name: Deploy production HAProxy cluster
   ansible.builtin.import_playbook: playbooks/haproxy-cluster-playbook/site.yml
