@@ -1,3 +1,2 @@
-proxmoxer
-requests
-python-libmaas
+proxmoxer >= 1.2.0
+requests >= 2.26.0

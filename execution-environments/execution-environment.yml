@@ -13,3 +13,8 @@ images:
   builder_image:
     name: quay.io/ansible/ansible-builder:latest
 
+additional_build_steps:
+  prepend: |
+    RUN pip3 install --upgrade pip setuptools
+  append:
+    - RUN ls -la /etc
