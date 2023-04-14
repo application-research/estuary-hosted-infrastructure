@@ -16,7 +16,7 @@
 
     - name: Ensure ~/.ssh exists
       ansible.builtin.file:
-        path: "{{ ansible_env.HOME }}/.ssh"
+        path: "{{ lookup('env', 'HOME') }}/.ssh"
         state: directory
         mode: '0700'
 
