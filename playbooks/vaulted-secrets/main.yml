@@ -1,0 +1,20 @@
+---
+- name: Retrieve vaulted secrets
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  # Prompt the user for the repository needed to retrieve secrets
+  vars_prompt:
+    - name: "vaulted_secrets_repository"
+      prompt: "What is the full URL to the private repository containing your secrets?"
+      private: false
+
+  # Retrieve the secrets from the repository
+  tasks:
+    - name: "Pull the secrets from the repository"
+      ansible.builtin.git:
+        repo: "{{ vaulted_secrets_repository }}"
+        dest: "{{ playbook_dir }}/secrets"
+        version: main
+        force: true
