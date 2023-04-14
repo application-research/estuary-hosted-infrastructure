@@ -47,7 +47,11 @@
     - name: "Load the vaulted variables based on our environment name"
       ansible.builtin.include_vars:
         file: "{{ playbook_dir }}/secrets/environments/{{ ehi_environment_name }}.yml"
+      register: loaded_vars
 
-    - name: "Print some vars"
-      ansible.builtin.debug:
-        msg: "{{ cf_dns_api_token }}"
+    - name: Set variables for all hosts
+      ansible.builtin.set_fact:
+        "{{ item.key }}": "{{ item.value }}"
+      loop: "{{ loaded_vars.ansible_facts | dict2items }}"
+      delegate_to: "{{ inventory_hostname }}"
+      delegate_facts: true
