@@ -6,4 +6,4 @@ roles:
     version: main
 
 collections:
-- name: community.general
+  - name: community.general
