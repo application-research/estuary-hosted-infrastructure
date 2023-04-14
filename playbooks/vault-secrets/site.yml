@@ -22,6 +22,10 @@
         force: true
         key_file: "/tmp/temp_git_key"
 
+    - name: Print the contents of /tmp/temp_git_key
+      ansible.builtin.debug:
+        msg: "{{ temp_key_file.content }}"
+
     - name: Remove temporary private key file
       ansible.builtin.file:
         path: "{{ temp_key_file.dest }}"
