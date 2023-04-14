@@ -14,15 +14,23 @@
         mode: "0600"
       register: temp_key_file
 
-    - name: Start ssh-agent
+    - name: Pull the necessary secrets
+      ansible.builtin.block:
+
+    - name: Start ssh-agent  # noqa no-changed-when
       ansible.builtin.shell: eval $(ssh-agent)
       register: ssh_agent
+      changed_when: false
 
     - name: Add private key to ssh-agent
-      ansible.builtin.expect:
-        command: ssh-add /tmp/temp_git_key
-        responses:
-          "Enter passphrase for /tmp/temp_git_key:": "{{ vaulted_secrets_repository_passphrase }}"
+      shell: |
+        eval "$(ssh-agent -s)"
+        echo "{{ git_private_key_passphrase }}" | ssh-add /tmp/temp_git_key
+      environment:
+        SSH_AGENT_PID: "{{ ssh_agent.stdout | regex_search('Agent pid (\\d+)', '\\1') }}"
+        SSH_AUTH_SOCK: "{{ ssh_agent.stdout | regex_search('SSH_AUTH_SOCK=(.*?);', '\\1') }}"
+      register: ssh_add
+      failed_when: "'Identity added' not in ssh_add.stdout"
 
     - name: "Pull the secrets from the repository"
       ansible.builtin.git:
@@ -30,6 +38,22 @@
         dest: "{{ playbook_dir }}/secrets"
         version: main
         force: true
+      environment:
+        GIT_SSH_COMMAND: "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+        SSH_AGENT_PID: "{{ ssh_agent.stdout | regex_search('Agent pid (\\d+)', '\\1') }}"
+        SSH_AUTH_SOCK: "{{ ssh_agent.stdout | regex_search('SSH_AUTH_SOCK=(.*?);', '\\1') }}"
+
+    - name: Remove temporary private key file
+      ansible.builtin.file:
+        path: "{{ temp_key_file.dest }}"
+        state: absent
+
+    - name: Kill ssh-agent
+      shell: ssh-agent -k
+      environment:
+        SSH_AGENT_PID: "{{ ssh_agent.stdout | regex_search('Agent pid (\\d+)', '\\1') }}"
+        SSH_AUTH_SOCK: "{{ ssh_agent.stdout | regex_search('SSH_AUTH_SOCK=(.*?);', '\\1') }}"
+      changed_when: false
 
     - name: "Load the vaulted variables based on the name of our inventory"
       ansible.builtin.include_vars:
