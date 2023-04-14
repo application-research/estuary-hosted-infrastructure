@@ -49,9 +49,10 @@
         file: "{{ playbook_dir }}/secrets/environments/{{ ehi_environment_name }}.yml"
       register: loaded_vars
 
-    - name: Set variables for all hosts
+    - name: Set variables for all hosts # noqa run-once
       ansible.builtin.set_fact:
         "{{ item.key }}": "{{ item.value }}"
       loop: "{{ loaded_vars.ansible_facts | dict2items }}"
+      run_once: true
       delegate_to: "{{ inventory_hostname }}"
       delegate_facts: true
