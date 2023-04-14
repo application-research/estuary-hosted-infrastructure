@@ -17,7 +17,7 @@
     - name: Add GitHub's host keys to known_hosts # noqa line-length
       ansible.builtin.known_hosts:
         name: github.com
-        key: "{{ item }}"
+        key: "github.com {{ item }}"
         state: present
       loop:
         - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl"
