@@ -1,6 +1,9 @@
 ---
 roles:
   - name: zorlin.pacemaker
+    src: https://github.com/Zorlin/ansible-role-pacemaker
+    version: main
+
   - name: zorlin.moosefs
     src: https://github.com/Zorlin/ansible-role-moosefs
     version: main
