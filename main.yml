@@ -15,6 +15,12 @@
 ## Stage 2 payloads - Estuary Bootstrap Infrastructure + Genesis
 # - import_playbook: playbooks/name.yml # s02-01-genesis/
 # - import_playbook: playbooks/name.yml # s02-02-dns/
+### s02-03-moosefs - Production MooseFS Cluster
+- name: Create production HAProxy cluster
+  ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
+  vars:
+    machine_details: prod-moosefs-m
+
 # - import_playbook: playbooks/moosefs-playbook/site.yml # s02-03-moosefs/
 # - import_playbook: playbooks/name.yml # s02-04-tls-bastion/
 # - import_playbook: playbooks/name.yml # s02-05-haproxy/
