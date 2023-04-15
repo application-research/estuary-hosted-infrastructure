@@ -13,3 +13,4 @@
 [submodule "playbooks/estuary-postgres-playbook"]
 	path = playbooks/estuary-postgres-playbook
 	url = https://github.com/application-research/estuary-postgres-playbook.git
+        branch = ehi
