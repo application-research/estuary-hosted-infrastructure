@@ -13,3 +13,24 @@ prod-tls-gen.estuary.tech
 [tls_hosts]
 prod-haproxy[01:03].estuary.tech
 prod-dns[01:03].estuary.tech
+
+# PostgreSQL clusters
+[postgresql:children]
+prod-ehi-api-db
+prod-ehi-db
+prod-ebi-db
+
+[etcd:children]
+postgresql
+
+[etcd_master:children]
+postgresql
+
+[prod-ehi-api-db]
+prod-ehi-api-db[01:03].estuary.tech
+
+[prod-ehi-db]
+prod-ehi-db[01:03].estuary.tech
+
+[prod-ebi-db]
+prod-ebi-db[01:03].estuary.tech

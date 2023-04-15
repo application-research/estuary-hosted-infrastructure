@@ -41,6 +41,13 @@
     refresh_inventory: true
 
 # - import_playbook: playbooks/name.yml # s02-06-ebi-db/
+- name: Create production EBI PostgreSQL cluster
+  ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
+  vars:
+    machine_details: prod-ebi-db
+
+- name: Deploy production EBI PostgreSQL cluster
+  ansible.builtin.import_playbook: playbooks/estuary-postgres-playbook/site.yml
 
 ### s02-07-ebi - Estuary Bootstrap Infrastructure
 - name: Create dev-ebi-k8s control plane nodes
@@ -61,7 +68,21 @@
 # - import_playbook: playbooks/name.yml # s02-08-bastion/
 # - import_playbook: playbooks/name.yml # s02-09-nautobot/
 # - import_playbook: playbooks/name.yml # s03-01-maas/
+- name: Create production EHI PostgreSQL cluster
+  ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
+  vars:
+    machine_details: prod-ehi-db
+
 # - import_playbook: playbooks/name.yml # s04-01-ehi-db/
+
+- name: Create production EHI PostgreSQL cluster
+  ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
+  vars:
+    machine_details: prod-ehi-api-db
+
+- name: Deploy production EHI PostgreSQL clusters
+  ansible.builtin.import_playbook: playbooks/estuary-postgres-playbook/site.yml
+
 # - import_playbook: playbooks/name.yml # s04-02-ehi-api-db/
 # - import_playbook: playbooks/name.yml # s04-03-ehi-api-nsq/
 # - import_playbook: playbooks/name.yml # s04-04-ehi-api/

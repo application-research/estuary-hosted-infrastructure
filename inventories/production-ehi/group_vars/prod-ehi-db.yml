@@ -1,0 +1,22 @@
+---
+# Settings specific to the prod-ebi-db PostgreSQL cluster.
+# See also postgresql.yml for settings that are applied more generally.
+
+# Name of the cluster
+postgresql_cluster_name: prod-ehi-db
+
+patroni_postgresql_pg_hba:
+  - { type: "local", database: "all", user: "all", method: "peer" }
+  - { type: "host", database: "all", user: "postgres", address: "{{ internal_subnet }}", method: "md5" }
+  - { type: "host", database: "estuary", user: "estuary", address: "{{ internal_subnet }}", method: "scram-sha-256" }
+  - { type: "host", database: "all", user: "all", address: "139.178.81.229/32", method: "scram-sha-256" }
+  - { type: "host", database: "all", user: "all", address: "147.28.148.185/32", method: "scram-sha-256" }
+  - { type: "host", database: "all", user: "all", address: "139.178.81.169/32", method: "scram-sha-256" }
+  - { type: "host", database: "all", user: "all", address: "139.178.81.169/32", method: "scram-sha-256" }
+  - { type: "host", database: "all", user: "all", address: "10.24.0.21/32", method: "scram-sha-256" } # prod-haproxy01
+  - { type: "host", database: "all", user: "all", address: "10.24.0.22/32", method: "scram-sha-256" } # prod-haproxy02
+  - { type: "host", database: "all", user: "all", address: "10.24.0.23/32", method: "scram-sha-256" } # prod-haproxy03
+  # Not sure if this is actually needed. Replace VAR with squiggly brackets if it is and put it back in.
+  # - { type: "host", database: "all", user: "all", address: "VAR internal_subnet VAR", method: "ident", options: "map=omicron" }
+  - { type: "host", database: "replication", user: "{{ patroni_replication_username }}", address: "{{ internal_subnet }}", method: "md5" } # Allow Patroni replication
+  - { type: "host", database: "replication", user: "{{ patroni_replication_username }}", address: "127.0.0.1/32", method: "md5" } # Allow local Patroni access
