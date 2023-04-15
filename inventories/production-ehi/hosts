@@ -12,7 +12,7 @@ prod-tls-gen.estuary.tech
 
 [tls_hosts]
 prod-haproxy[01:03].estuary.tech
-prod-dns[01:03].estuary.tech
+#prod-dns[01:03].estuary.tech
 
 # PostgreSQL clusters
 [postgresql:children]
