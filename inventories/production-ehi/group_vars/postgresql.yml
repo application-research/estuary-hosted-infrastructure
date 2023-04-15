@@ -1,6 +1,6 @@
 ---
 # Global settings for all PostgreSQL clusters.
-patroni_scope: {{ postgresql_cluster_name }}
+patroni_scope: "{{ postgresql_cluster_name }}"
 
 patroni_system_group: postgres
 patroni_install_haproxy: false

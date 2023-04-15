@@ -1,9 +1,9 @@
 ---
-# Settings specific to the prod-ebi-db PostgreSQL cluster.
+# Settings specific to the prod-ehi-db PostgreSQL cluster.
 # See also postgresql.yml for settings that are applied more generally.
 
 # Name of the cluster
-postgresql_cluster_name: prod-ehi-api-db
+postgresql_cluster_name: prod_ehi_db
 
 patroni_postgresql_pg_hba:
   - { type: "local", database: "all", user: "all", method: "peer" }

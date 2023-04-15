@@ -16,9 +16,9 @@ prod-dns[01:03].estuary.tech
 
 # PostgreSQL clusters
 [postgresql:children]
-prod-ehi-api-db
-prod-ehi-db
-prod-ebi-db
+prod_ehi_api_db
+prod_ehi_db
+prod_ebi_db
 
 [etcd:children]
 postgresql
@@ -26,11 +26,11 @@ postgresql
 [etcd_master:children]
 postgresql
 
-[prod-ehi-api-db]
+[prod_ehi_api_db]
 prod-ehi-api-db[01:03].estuary.tech
 
-[prod-ehi-db]
+[prod_ehi_db]
 prod-ehi-db[01:03].estuary.tech
 
-[prod-ebi-db]
+[prod_ebi_db]
 prod-ebi-db[01:03].estuary.tech

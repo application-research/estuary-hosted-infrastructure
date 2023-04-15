@@ -3,7 +3,7 @@
 # See also postgresql.yml for settings that are applied more generally.
 
 # Name of the cluster
-postgresql_cluster_name: prod-ehi-db
+postgresql_cluster_name: prod_ebi_db
 
 patroni_postgresql_pg_hba:
   - { type: "local", database: "all", user: "all", method: "peer" }
@@ -13,6 +13,7 @@ patroni_postgresql_pg_hba:
   - { type: "host", database: "all", user: "all", address: "147.28.148.185/32", method: "scram-sha-256" }
   - { type: "host", database: "all", user: "all", address: "139.178.81.169/32", method: "scram-sha-256" }
   - { type: "host", database: "all", user: "all", address: "139.178.81.169/32", method: "scram-sha-256" }
+  - { type: "host", database: "all", user: "all", address: "10.24.6.214/32", method: "scram-sha-256" } # Nautobot server
   - { type: "host", database: "all", user: "all", address: "10.24.0.21/32", method: "scram-sha-256" } # prod-haproxy01
   - { type: "host", database: "all", user: "all", address: "10.24.0.22/32", method: "scram-sha-256" } # prod-haproxy02
   - { type: "host", database: "all", user: "all", address: "10.24.0.23/32", method: "scram-sha-256" } # prod-haproxy03
