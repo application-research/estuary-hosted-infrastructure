@@ -2,6 +2,9 @@
 # Global settings for all PostgreSQL clusters.
 patroni_scope: "{{ postgresql_cluster_name }}"
 
+# Subnet for main EHI network
+internal_subnet: "10.24.0.0/16"
+
 patroni_system_group: postgres
 patroni_install_haproxy: false
 patroni_install_watchdog_loader: false
