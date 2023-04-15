@@ -7,3 +7,6 @@ roles:
   - name: zorlin.moosefs
     src: https://github.com/Zorlin/ansible-role-moosefs
     version: main
+
+  - name: zorlin.patroni
+  - name: zorlin.etcd_cluster
