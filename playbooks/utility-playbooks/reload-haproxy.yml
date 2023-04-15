@@ -1,0 +1,10 @@
+---
+- name: Reload haproxy
+  hosts: loadbalancer
+  become: true
+
+  tasks:
+    - name: Reload haproxy
+      ansible.builtin.systemd:
+        name: haproxy
+        state: reloaded

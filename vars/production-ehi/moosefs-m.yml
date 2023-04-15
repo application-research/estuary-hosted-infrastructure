@@ -1,0 +1,13 @@
+---
+# Machine specs
+scsi_disk_layout:
+  scsi0: "vm-storage:50,format=raw"
+  scsi1: "vm-storage:1024,format=raw"
+amount_of_memory: 98304
+number_of_vcpus: 16
+ip_range:
+  - start: 10.24.3.51
+    end: 10.24.3.54
+starting_number: 1
+vm_name: prod-moosefs-m
+vm_description: "Production MooseFS Metadata nodes"
