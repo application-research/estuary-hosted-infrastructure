@@ -12,4 +12,4 @@
 	url = https://github.com/application-research/wildcard-tls-playbook.git
 [submodule "playbooks/estuary-postgres-playbook"]
 	path = playbooks/estuary-postgres-playbook
-	url = git@github.com:application-research/estuary-postgres-playbook.git
+	url = https://github.com/application-research/estuary-postgres-playbook.git
