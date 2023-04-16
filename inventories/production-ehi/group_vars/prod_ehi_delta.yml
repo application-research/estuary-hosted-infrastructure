@@ -1,0 +1,7 @@
+---
+# Production EHI configuration for Delta
+delta_node_name: "ehi-delta"
+delta_description: "Delta running on Estuary Hosted Infrastructure."
+delta_mode: "cluster" # HA
+delta_database_name: "deltadb"
+delta_shared_repo: "/mnt/.whypfs"
