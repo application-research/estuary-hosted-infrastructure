@@ -1,12 +1,19 @@
-[moosefs]
-prod-moosefs-m[01:04].estuary.tech
-10.24.0.2[01:08] ansible_user=root
+[moosefs:children]
+moosefs_master
+moosefs_chunkserver
+moosefs_metalogger
+moosefs_client
 
 [moosefs_master]
 prod-moosefs-m[01:04].estuary.tech
 
 [moosefs_chunkserver]
 10.24.0.2[01:08] ansible_user=root
+
+[moosefs_metalogger]
+
+[moosefs_client]
+prod-ehi-delta[01:08].estuary.tech
 
 [proxmox_clients]
 localhost
@@ -19,6 +26,10 @@ prod-tls-gen.estuary.tech
 
 [tls_hosts]
 prod-haproxy[01:03].estuary.tech
+
+# Delta clusters
+[prod_ehi_delta]
+prod-ehi-delta[01:08].estuary.tech
 
 # PostgreSQL clusters
 [postgresql:children]
