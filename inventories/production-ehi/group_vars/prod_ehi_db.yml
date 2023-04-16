@@ -17,6 +17,6 @@ patroni_postgresql_pg_hba:
   - { type: "host", database: "all", user: "all", address: "10.24.0.22/32", method: "scram-sha-256" } # prod-haproxy02
   - { type: "host", database: "all", user: "all", address: "10.24.0.23/32", method: "scram-sha-256" } # prod-haproxy03
   # Not sure if this is actually needed. Replace VAR with squiggly brackets if it is and put it back in.
-  # - { type: "host", database: "all", user: "all", address: "VAR internal_subnet VAR", method: "ident", options: "map=omicron" }
+  #- { type: "host", database: "all", user: "all", address: "{{ internal_subnet }}", method: "ident", options: "map=omicron" }
   - { type: "host", database: "replication", user: "{{ patroni_replication_username }}", address: "{{ internal_subnet }}", method: "md5" } # Allow Patroni replication
   - { type: "host", database: "replication", user: "{{ patroni_replication_username }}", address: "127.0.0.1/32", method: "md5" } # Allow local Patroni access
