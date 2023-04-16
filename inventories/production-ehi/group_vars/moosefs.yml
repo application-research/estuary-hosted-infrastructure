@@ -2,3 +2,7 @@
 # Global settings for MooseFS
 
 moosefs_pro: true
+
+moosefs_master_extra_config: |
+  # Modify the chunkserver load configs temporarily to allow for higher loads.
+  CS_HEAVY_LOAD_THRESHOLD = 250
