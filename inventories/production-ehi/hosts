@@ -1,5 +1,6 @@
 [moosefs]
-10.24.0.2[01:08]
+prod-mfs-m[01:04]
+10.24.0.2[01:08] ansible_user=root
 
 [proxmox_clients]
 localhost
