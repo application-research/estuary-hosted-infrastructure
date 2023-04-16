@@ -3,6 +3,7 @@
 compile_dir: /usr/local/src/delta
 delta_main_dir: /opt/delta
 delta_blockstore_dir: /mnt/mfs/services/whypfs
+delta_wallet_dir: /var/lib/arg-delta/wallet_estuary
 delta_system_user: estuary
 delta_system_group: estuary
 delta_system_home: /var/lib/arg-delta
