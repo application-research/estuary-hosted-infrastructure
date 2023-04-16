@@ -15,3 +15,6 @@
 	path = playbooks/estuary-postgres-playbook
 	url = https://github.com/application-research/estuary-postgres-playbook.git
         branch = ehi
+[submodule "playbooks/delta-playbook"]
+	path = playbooks/delta-playbook
+	url = https://github.com/application-research/delta-playbook.git

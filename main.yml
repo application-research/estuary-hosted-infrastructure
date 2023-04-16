@@ -94,3 +94,10 @@
 # - import_playbook: playbooks/name.yml # s04-04-ehi-api/
 # - import_playbook: playbooks/name.yml # s04-05-ehi-edge/
 # - import_playbook: playbooks/name.yml # s04-06-phos-k8s/
+### s04-07-ehi-delta - Deploy EHI Delta Cluster
+- name: Create production Delta cluster
+  ansible.builtin.import_playbook: playbooks/ehi-proxmaas/spawn.yml
+  vars:
+    machine_details: prod-ehi-delta
+
+#- import_playbook: playbooks/delta-playbook/deploy.yml # s04-07-ehi-delta/

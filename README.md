@@ -57,6 +57,7 @@ Once the groundwork has been laid, on top of the groundfloor, you can deploy the
 * s04-04-ehi-api/ - Deploys the Estuary API cluster.
 * s04-05-ehi-edge/ - Deploys the Estuary Edge cluster.
 * s04-06-phos-k8s/ - Deploys the Phosphophyllite Kubernetes cluster.
+* s04-07-delta/	- Deploys the Estuary Delta cluster.
 
 ## TODOs/coming soon
 * A script that allows you to edit the VLANs and IP addressing schemes of the entire EHI stack and output a new set of instructions.
