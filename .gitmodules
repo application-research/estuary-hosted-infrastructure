@@ -1,6 +1,7 @@
 [submodule "playbooks/moosefs-playbook"]
 	path = playbooks/moosefs-playbook
 	url = https://github.com/Zorlin/moosefs-playbook.git
+	branch = ehi
 [submodule "playbooks/ehi-proxmaas"]
 	path = playbooks/ehi-proxmaas
 	url = https://github.com/application-research/ehi-proxmaas.git
