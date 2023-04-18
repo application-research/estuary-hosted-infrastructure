@@ -8,4 +8,4 @@ delta_system_user: estuary
 delta_system_group: estuary
 delta_system_home: /var/lib/arg-delta
 binary_install_dir: /usr/local/bin
-golang_version: '1.18.10'
+golang_version: '1.19.8'

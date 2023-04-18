@@ -14,6 +14,7 @@ prod-moosefs-m[01:04].estuary.tech
 
 [moosefs_client]
 prod-ehi-delta[01:08].estuary.tech
+prod-phos-k8s-w[01:40].estuary.tech
 
 [proxmox_clients]
 localhost
@@ -57,3 +58,18 @@ prod-ehi-db[01:03].estuary.tech
 
 [prod_ebi_db]
 prod-ebi-db[01:03].estuary.tech
+
+# Kubernetes clusters
+[rancher_rke2:children]
+rancher_rke2_controlplane
+rancher_rke2_worker
+
+[rancher_rke2_controlplane]
+prod-phos-k8s-m[01:07].estuary.tech
+
+[rancher_rke2_worker]
+prod-phos-k8s-w[01:40].estuary.tech
+
+[phosphophyllite]
+prod-phos-k8s-m[01:07].estuary.tech
+prod-phos-k8s-w[01:40].estuary.tech
