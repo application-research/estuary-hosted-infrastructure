@@ -73,3 +73,20 @@ prod-phos-k8s-w[01:40].estuary.tech
 [phosphophyllite]
 prod-phos-k8s-m[01:07].estuary.tech
 prod-phos-k8s-w[01:40].estuary.tech
+
+# Legacy Estuary
+[estuary:children]
+estuary_api
+estuary_shuttle
+
+[estuary_api:children]
+prod_ehi_api
+
+[estuary_shuttle:children]
+prod_shuttle
+
+[prod_ehi_api]
+prod-ehi-api01.estuary.tech
+
+[prod_shuttle]
+prod-shuttle12.estuary.tech
