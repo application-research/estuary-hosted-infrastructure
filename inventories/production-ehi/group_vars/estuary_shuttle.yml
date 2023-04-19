@@ -1,2 +1,5 @@
 ---
 golang_version: '1.19.8'
+
+# For the shuttles, where to store non-database data
+estuary_shuttle_data: "/mnt/mfs/estuaryv1/shuttles/{{ ansible_hostname }}"
