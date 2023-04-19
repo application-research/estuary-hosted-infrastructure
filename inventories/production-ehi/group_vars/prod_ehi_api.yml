@@ -1,0 +1,5 @@
+---
+# Settings specific to the Production API (EstuaryV1) on EHI.
+estuary_database_host: 'postgres-ehi.estuary.tech'
+estuary_database_name: 'estuary'
+estuary_database_user: 'estuary'
