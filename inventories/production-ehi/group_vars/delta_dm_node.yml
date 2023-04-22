@@ -1,6 +1,6 @@
 ---
 # Default settings for all Delta DM nodes
-compile_dir: /usr/local/src/delta-dm
+delta_dm_compile_dir: /usr/local/src/delta-dm
 delta_dm_main_dir: /opt/delta-dm
 delta_system_user: estuary
 delta_system_group: estuary
