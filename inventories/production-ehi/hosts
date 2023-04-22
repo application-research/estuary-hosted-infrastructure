@@ -35,6 +35,9 @@ prod_ehi_delta
 [prod_ehi_delta]
 prod-ehi-delta[01:08].estuary.tech
 
+[delta_dm_node]
+prod-ehi-delta01.estuary.tech
+
 # PostgreSQL clusters
 [postgresql:children]
 prod_ehi_api_db
