@@ -1,4 +1,2 @@
 ---
 ansible_python_interpreter: /usr/bin/python3
-technitium_url: "https://dns.estuary.tech"
-dns_domain: "estuary.tech"
