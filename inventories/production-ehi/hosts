@@ -16,6 +16,7 @@ prod-moosefs-m[01:04].estuary.tech
 prod-ehi-delta[01:08].estuary.tech
 prod-ehi-edge[01:08].estuary.tech
 prod-phos-k8s-w[01:40].estuary.tech
+prod-fwscdn[01:03].estuary.tech
 
 [proxmox_clients]
 localhost
@@ -28,6 +29,10 @@ prod-tls-gen.estuary.tech
 
 [tls_hosts]
 prod-haproxy[01:03].estuary.tech
+
+# Staging CDN
+[fwscdn]
+prod-fwscdn[01:03].estuary.tech
 
 # Delta clusters
 [delta_node:children]
