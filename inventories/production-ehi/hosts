@@ -29,9 +29,10 @@ prod-tls-gen.estuary.tech
 
 [tls_hosts]
 prod-haproxy[01:03].estuary.tech
+prod-gitea[01:03].estuary.tech
 
 # Staging CDN
-[fwscdn]
+[prod_fwscdn]
 prod-fwscdn[01:03].estuary.tech
 
 # Delta clusters
