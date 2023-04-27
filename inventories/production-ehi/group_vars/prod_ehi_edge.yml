@@ -3,5 +3,5 @@
 edge_node_name: "ehi-edge"
 edge_description: "edge running on Estuary Hosted Infrastructure."
 edge_database_name: "edge"
-edge_shared_repo: "/mnt/mfs/services/whypfs"
+edge_shared_repo: "/mnt/mfs/services/whypfs/edge"
 delta_node_api: https://delta.estuary.tech
