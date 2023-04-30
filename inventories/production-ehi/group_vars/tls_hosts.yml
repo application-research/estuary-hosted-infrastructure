@@ -6,6 +6,7 @@ env_name: production
 dns_domains:
   - "edge.estuary.tech"
   - "delta.estuary.tech"
+  - "registry.estuary.tech"
   - "estuary.tech"
 
 # Email used for Let's Encrypt renewal notices. Should match the name of your Cloudflare account.
