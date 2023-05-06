@@ -109,4 +109,4 @@ prod-ehi-api01.estuary.tech
 prod-shuttle12.estuary.tech
 
 [automaton]
-localhost
+localhost ansible_connection=local
