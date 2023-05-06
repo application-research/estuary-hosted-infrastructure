@@ -107,3 +107,6 @@ prod-ehi-api01.estuary.tech
 
 [prod_shuttle]
 prod-shuttle12.estuary.tech
+
+[automaton]
+localhost
