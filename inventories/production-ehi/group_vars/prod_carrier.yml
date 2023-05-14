@@ -1,0 +1,7 @@
+---
+# Production EHI configuration for edge
+edge_node_name: "carrier-edge"
+edge_description: "edge running on Estuary Carriers"
+edge_database_name: "edge_carrier"
+edge_shared_repo: "/mnt/mfs/services/whypfs/edge"
+delta_node_api: https://delta.estuary.tech
