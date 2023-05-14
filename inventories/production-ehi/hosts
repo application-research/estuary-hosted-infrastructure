@@ -48,9 +48,13 @@ prod-ehi-delta[01:08].estuary.tech
 # Edge clusters
 [edge_node:children]
 prod_ehi_edge
+prod_carrier
 
 [prod_ehi_edge]
 prod-ehi-edge[01:08].estuary.tech
+
+[prod_carrier]
+prod-carrier[01:03].estuary.tech
 
 # PostgreSQL clusters
 [postgresql:children]
