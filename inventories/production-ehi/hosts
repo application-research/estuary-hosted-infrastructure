@@ -91,6 +91,10 @@ prod-phos-k8s-w[01:40].estuary.tech
 prod-phos-k8s-m[01:07].estuary.tech
 prod-phos-k8s-w[01:40].estuary.tech
 
+# CheckMK Clients
+[checkmk_clients]
+dev-demo[01:03].estuary.tech
+
 # Legacy Estuary
 [estuary:children]
 estuary_api
