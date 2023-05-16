@@ -18,3 +18,6 @@
 [submodule "playbooks/delta-playbook"]
 	path = playbooks/delta-playbook
 	url = https://github.com/application-research/delta-playbook.git
+[submodule "playbooks/checkmk-playbook"]
+	path = playbooks/checkmk-playbook
+	url = git@github.com:application-research/checkmk-playbook.git
