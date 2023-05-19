@@ -21,6 +21,17 @@ prod-fwscdn[01:03].estuary.tech
 [proxmox_clients]
 localhost
 
+[proxmox_hosts]
+apollo.estuary.tech ansible_user=root
+capella.estuary.tech ansible_user=root
+vega.estuary.tech ansible_user=root
+altair.estuary.tech ansible_user=root
+arcturus.estuary.tech ansible_user=root
+pioneer.estuary.tech ansible_user=root
+polaris.estuary.tech ansible_user=root
+sirius.estuary.tech ansible_user=root
+vega.estuary.tech ansible_user=root
+
 [loadbalancer]
 prod-haproxy[01:03].estuary.tech
 
@@ -97,6 +108,7 @@ prod-phos-k8s-w[01:40].estuary.tech
 
 # CheckMK Clients
 [checkmk_clients:children]
+proxmox_hosts
 moosefs_master
 moosefs_client
 loadbalancer
