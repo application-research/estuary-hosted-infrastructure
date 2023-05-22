@@ -46,6 +46,13 @@ prod-gitea[01:03].estuary.tech
 [prod_fwscdn]
 prod-fwscdn[01:03].estuary.tech
 
+# SeaweedFS
+[redis:children]
+prod_redis
+
+[prod_redis]
+prod-redis[01:06].estuary.tech
+
 # Delta clusters
 [delta_node:children]
 prod_ehi_delta
