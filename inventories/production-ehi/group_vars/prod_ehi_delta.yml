@@ -4,5 +4,6 @@ delta_node_name: "ehi-delta"
 delta_description: "Delta running on Estuary Hosted Infrastructure."
 delta_mode: "cluster" # HA
 delta_database_name: "deltadb"
+delta_system_user: "estuary"
 # Defined elsewhere as delta_blockstore_dir
 #delta_shared_repo: "/mnt/mfs/services/whypfs/delta"
