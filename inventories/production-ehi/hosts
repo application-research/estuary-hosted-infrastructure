@@ -32,6 +32,9 @@ polaris.estuary.tech ansible_user=root
 sirius.estuary.tech ansible_user=root
 vega.estuary.tech ansible_user=root
 
+[bastion_servers]
+prod-bastion[01:03].estuary.tech ansible_user=wings
+
 [loadbalancer]
 prod-haproxy[01:03].estuary.tech
 
@@ -115,6 +118,7 @@ prod-phos-k8s-w[01:40].estuary.tech
 
 # CheckMK Clients
 [checkmk_clients:children]
+bastion_servers
 proxmox_hosts
 moosefs_master
 moosefs_client
@@ -152,3 +156,4 @@ prod-shuttle12.estuary.tech
 
 [automaton]
 localhost ansible_connection=local
+
