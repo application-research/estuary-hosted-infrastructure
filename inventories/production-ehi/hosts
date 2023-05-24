@@ -64,6 +64,7 @@ seaweedfs_region="usa_dal1"
 [usa_dal1:children]
 prod_swfs_master
 prod_swfs_filer
+prod_redis
 
 [seaweedfs:children]
 prod_swfs_master
