@@ -17,6 +17,7 @@ prod-ehi-delta[01:08].estuary.tech
 prod-ehi-edge[01:08].estuary.tech
 prod-phos-k8s-w[01:40].estuary.tech
 prod-fwscdn[01:03].estuary.tech
+prod-carrier[01:03].estuary.tech
 
 [proxmox_clients]
 localhost
@@ -44,6 +45,7 @@ prod-tls-gen.estuary.tech
 [tls_hosts]
 prod-haproxy[01:03].estuary.tech
 prod-gitea[01:03].estuary.tech
+prod-carrier[01:03].estuary.tech
 
 # Staging CDN
 [prod_fwscdn]
