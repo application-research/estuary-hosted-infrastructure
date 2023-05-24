@@ -59,7 +59,7 @@ prod_redis
 prod-redis[01:06].estuary.tech
 
 [seaweedfs:vars]
-seaweedfs_region: "usa_dal1"
+seaweedfs_region="usa_dal1"
 
 [seaweedfs:children]
 prod_swfs_master
