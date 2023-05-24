@@ -65,6 +65,7 @@ seaweedfs_region="usa_dal1"
 prod_swfs_master
 prod_swfs_filer
 prod_redis
+seaweedfs_volume_servers
 
 [seaweedfs:children]
 prod_swfs_master
@@ -75,6 +76,10 @@ prod_swfs_master
 
 [seaweedfs_filers:children]
 prod_swfs_filer
+
+[seaweedfs_volume_servers]
+altair.estuary.tech ansible_ssh_user=root
+apollo.estuary.tech ansible_ssh_user=root
 
 [prod_swfs_filer]
 prod-swfs-filer[01:04].estuary.tech
