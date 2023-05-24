@@ -65,6 +65,9 @@ seaweedfs_region="usa_dal1"
 prod_swfs_master
 prod_swfs_filer
 
+[seaweedfs_masters:children]
+prod_swfs_master
+
 [prod_swfs_filer]
 prod-swfs-filer[01:04].estuary.tech
 
