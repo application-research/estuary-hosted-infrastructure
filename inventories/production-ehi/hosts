@@ -58,6 +58,16 @@ prod_redis
 [prod_redis]
 prod-redis[01:06].estuary.tech
 
+[seaweedfs:children]
+prod_swfs_master
+prod_swfs_filer
+
+[prod_swfs_filer]
+prod-swfs-filer[01:04].estuary.tech
+
+[prod_swfs_master]
+prod-swfs-master[01:03].estuary.tech
+
 # Delta clusters
 [delta_node:children]
 prod_ehi_delta
