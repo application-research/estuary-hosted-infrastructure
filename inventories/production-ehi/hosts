@@ -70,6 +70,7 @@ seaweedfs_volume_servers
 [seaweedfs:children]
 prod_swfs_master
 prod_swfs_filer
+seaweedfs_volume_servers
 
 [seaweedfs_masters:children]
 prod_swfs_master
