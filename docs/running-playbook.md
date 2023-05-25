@@ -1,10 +1,14 @@
 
-# A guide for running this playbook outside of AWX
+# How to run this playbook outside of AWX
+
+This playbook is run with a second private repository and inventory for the private "group_vars" files, which are unlocked with various password files. For those of you with enough access, this secondary repository can be viewed at: https://github.com/application-research/estuary-hosted-infrastructure-private
+
+The purpose of this seperation is to enhance security and avoid exposing more sensitive and vaulted variables to the wider internet.
 
 
-## Setup aliases
+## Running the playbooks
 
-This makes it a lot simpler to run playbooks against the 2 repositories/inventories we use:
+1) Setup aliases. This makes it a lot simpler to run playbooks against the 2 repositories/inventories we use:
 ```
 $ cat ~/.bash_aliases
 # Aliases
@@ -12,17 +16,14 @@ alias ansible-ehi='ansible -u ubuntu -i ~/projects/estuary-hosted-infrastructure
 alias ansible-playbook-ehi='ansible-playbook -u ubuntu -i ~/projects/estuary-hosted-infrastructure/inventories/production-ehi/ -i ~/projects/estuary-hosted-infrastructure-private/inventories/production-ehi/'
 ```
 
-
-## Running the playbooks
-
-1) Git clone the two necessary repos with submodules
+2) Git clone the two necessary repos with submodules
 ```
 $ cd ~/projects/
 $ git clone git@github.com:application-research/estuary-hosted-infrastructure.git --recurse-submodules
 $ git clone git@github.com:application-research/estuary-hosted-infrastructure-private.git --recurse-submodules
 ```
 
-2) Create any necessary Vault secrets locally on your machine (WARNING: we recommend deleting these once done each time, and only doing this on a machine with full disk encryption)
+3) Create any necessary Vault secrets locally on your machine (WARNING: we recommend deleting these once done each time, and only doing this on a machine with full disk encryption)
 ```
 $ mkdir -p ~/.ehi-vault
 $ nano ~/.ehi-vault/delta
@@ -34,7 +35,7 @@ $ nano ~/.ehi-vault/tls-materials
 $ nano ~/.ehi-vault/tls-bastion
 ```
 
-3) Run the main playbook with every variable file!
+4) Run the main playbook with every variable file!
 ```
 $ cd ~/projects/estuary-hosted-infrastructure
 $ ansible-playbook-ehi main.yml \
