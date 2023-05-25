@@ -46,6 +46,7 @@ prod-tls-gen.estuary.tech
 prod-haproxy[01:03].estuary.tech
 prod-gitea[01:03].estuary.tech
 prod-carrier[01:03].estuary.tech
+prod-swfs-filer[01:04].estuary.tech
 
 # Staging CDN
 [prod_fwscdn]
