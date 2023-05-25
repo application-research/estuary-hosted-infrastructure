@@ -14,6 +14,7 @@ $ cat ~/.bash_aliases
 # Aliases
 alias ansible-ehi='ansible -u ubuntu -i ~/projects/estuary-hosted-infrastructure/inventories/production-ehi/ -i ~/projects/estuary-hosted-infrastructure-private/inventories/production-ehi/'
 alias ansible-playbook-ehi='ansible-playbook -u ubuntu -i ~/projects/estuary-hosted-infrastructure/inventories/production-ehi/ -i ~/projects/estuary-hosted-infrastructure-private/inventories/production-ehi/'
+alias ansible-playbook-ehi-dev='ansible-playbook -u ubuntu -i ~/projects/estuary-hosted-infrastructure/inventories/development-ehi/ -i ~/projects/estuary-hosted-infrastructure-private/inventories/production-ehi/'
 ```
 
 2) Git clone the two necessary repos with submodules
