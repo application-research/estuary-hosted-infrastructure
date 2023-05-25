@@ -121,7 +121,6 @@ prod-phos-k8s-w[01:40].estuary.tech
 bastion_servers
 proxmox_hosts
 moosefs_master
-moosefs_client
 loadbalancer
 tls_bastion
 tls_hosts
@@ -155,10 +154,6 @@ rancher_rke2_worker
 phosphophyllite
 prod_ehi_api
 prod_shuttle
-
-# dev-demo inventory
-[dev_demo]
-dev-demo[01:03].estuary.tech
 
 # Legacy Estuary
 [estuary:children]
