@@ -121,7 +121,7 @@ prod-phos-k8s-w[01:40].estuary.tech
 bastion_servers
 proxmox_hosts
 moosefs_master
-moosefs_clients
+moosefs_client
 loadbalancer
 tls_bastion
 tls_hosts
