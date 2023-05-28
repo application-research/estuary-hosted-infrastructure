@@ -132,7 +132,6 @@ prod_ehi_db
 prod_ebi_db
 rancher_rke2_controlplane
 rancher_rke2_worker
-phosphophyllite
 prod_ehi_api
 prod_shuttle
 
@@ -151,7 +150,6 @@ prod_ehi_db
 prod_ebi_db
 rancher_rke2_controlplane
 rancher_rke2_worker
-phosphophyllite
 prod_ehi_api
 prod_shuttle
 
