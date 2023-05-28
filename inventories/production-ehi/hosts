@@ -138,8 +138,8 @@ prod_shuttle
 
 # Logtail/Betterstack Clients
 [logtail_clients:children]
-moosefs_master
 bastion_servers
+moosefs_master
 loadbalancer
 tls_bastion
 tls_hosts
