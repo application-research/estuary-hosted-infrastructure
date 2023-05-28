@@ -18,3 +18,6 @@
 [submodule "playbooks/delta-playbook"]
 	path = playbooks/delta-playbook
 	url = https://github.com/application-research/delta-playbook.git
+[submodule "playbooks/logtail-playbook"]
+	path = playbooks/logtail-playbook
+	url = https://github.com/application-research/logtail-playbook.git
