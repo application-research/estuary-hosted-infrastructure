@@ -21,3 +21,6 @@
 [submodule "playbooks/logtail-playbook"]
 	path = playbooks/logtail-playbook
 	url = https://github.com/application-research/logtail-playbook.git
+[submodule "playbooks/checkmk-playbook"]
+	path = playbooks/checkmk-playbook
+	url = https://github.com/application-research/checkmk-playbook.git
