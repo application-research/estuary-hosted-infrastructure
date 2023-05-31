@@ -24,3 +24,6 @@
 [submodule "playbooks/checkmk-playbook"]
 	path = playbooks/checkmk-playbook
 	url = https://github.com/application-research/checkmk-playbook.git
+[submodule "playbooks/maas-ansible-playbook"]
+	path = playbooks/maas-ansible-playbook
+	url = https://github.com/Zorlin/maas-ansible-playbook.git

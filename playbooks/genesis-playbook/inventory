@@ -1,0 +1,11 @@
+[genesis]
+genesis.pchq.tech ansible_user=root
+
+[maas_postgres:children]
+genesis
+
+[maas_region_controller:children]
+genesis
+
+[maas_rack_controller:children]
+genesis

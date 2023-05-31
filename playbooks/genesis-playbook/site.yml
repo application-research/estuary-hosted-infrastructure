@@ -1,0 +1,134 @@
+---
+- name: Genesis - create a Genesis Host
+  hosts: localhost
+
+  pre_tasks:
+    - name: Check if repo-specific secrets file exists
+      delegate_to: localhost
+      connection: local
+      become: false
+      ansible.builtin.stat:
+        path: "{{ playbook_dir }}/vars/secrets.yml"
+      register: repo_secrets_file
+
+    - name: If repo-specific secrets file exists, load it in
+      delegate_to: localhost
+      connection: local
+      become: false
+      ansible.builtin.include_vars:
+        file: "vars/secrets.yml"
+      when: repo_secrets_file.stat.exists
+
+  tasks:
+    - name: Ensure the Proxmox server has the Ubuntu 22.04 LXC image
+      community.general.proxmox_template:
+        node: "coheed"
+        api_user: "{{ proxmox_user }}"
+        api_host: 10.1.1.151
+        api_token_id: "genesis"
+        api_token_secret: "{{ proxmox_token_secret }}"
+        template: ubuntu-22.04-standard_22.04-1_amd64.tar.zst
+        content_type: "vztmpl"
+        state: present
+
+    - name: Create the genesis host
+      community.general.proxmox:
+        vmid: 1234
+        state: present
+        node: "coheed"
+        cpus: 4
+        memory: 8192
+        swap: 2048
+        api_user: root@pam
+        api_password: "{{ proxmox_password }}"
+        api_host: 10.1.1.151
+        pubkey: "{{ genesis_authorized_key }}"
+        unprivileged: true
+        hostname: genesis
+        ostemplate: 'local:vztmpl/ubuntu-22.04-standard_22.04-1_amd64.tar.zst'
+        netif: '{"net0":"name=eth0,gw=10.1.1.1,ip=10.1.123.123/16,bridge=vmbr0"}'
+        disk: 'local-lvm:60'
+        features:
+          - keyctl=1
+          - nesting=1
+          - mount=1
+          - fuse=1
+          - mknod=1
+
+    - name: Start the genesis host
+      community.general.proxmox:
+        vmid: 1234
+        state: started
+        node: "coheed"
+        api_user: root@pam
+        api_host: 10.1.1.151
+        api_token_id: "genesis"
+        api_token_secret: "{{ proxmox_token_secret }}"
+        pubkey: "{{ genesis_authorized_key }}"
+        unprivileged: true
+        hostname: genesis
+        ostemplate: 'local:vztmpl/ubuntu-22.04-standard_22.04-1_amd64.tar.zst'
+      notify: Sleep to allow VM to boot
+
+  handlers:
+    - name: Sleep to allow VM to boot
+      ansible.builtin.wait_for:
+        host: "genesis.pchq.tech"
+        port: 22
+        state: started
+        delay: 1
+        timeout: 300
+      delegate_to: localhost
+      connection: local
+
+- name: Accept the new host's hostkeys
+  hosts: genesis
+  gather_facts: false
+
+  tasks:
+    - name: Scan for SSH host keys
+      ansible.builtin.shell:
+        cmd: ssh-keyscan {{ inventory_hostname }} 2>/dev/null
+      delegate_to: localhost
+      connection: local
+      changed_when: false
+      register: ssh_scan
+
+    - name: Update known_hosts.
+      ansible.builtin.known_hosts:
+        key: "{{ item }}"
+        name: "{{ inventory_hostname }}"
+      delegate_to: localhost
+      connection: local
+      with_items: "{{ ssh_scan.stdout_lines }}"
+
+- name: Setup prerequisite packages on new Genesis host
+  hosts: genesis
+  user: root
+
+  tasks:
+    - name: Install necessary packages
+      ansible.builtin.package:
+        name:
+          - acl
+          - apt-transport-https
+          - git
+          - python3-pip
+          - snapd
+          - udev
+
+    - name: Set up a local /etc/hosts mapping
+      ansible.builtin.lineinfile:
+        path: /etc/hosts
+        line: "10.1.123.123 genesis genesis.pchq.tech"
+        state: present
+        create: false
+
+- name: Create MAAS host
+  ansible.builtin.import_playbook: ../maas-ansible-playbook/site.yaml
+  vars:
+    maas_version: 3.3
+    maas_postgres_password: "{{ wrapped.maas_postgres_password }}"
+    maas_installation_type: deb
+    maas_url: "http://genesis.pchq.tech:5240/MAAS"
+    wrapped: "{{ lookup('file', '../genesis-playbook/vars/secrets.yml') | from_yaml }}"
