@@ -47,6 +47,7 @@ prod-haproxy[01:03].estuary.tech
 prod-gitea[01:03].estuary.tech
 prod-carrier[01:03].estuary.tech
 prod-swfs-filer[01:04].estuary.tech
+prod-nsqlookupd01.estuary.tech
 
 # Staging CDN
 [prod_fwscdn]
@@ -205,4 +206,3 @@ prod-shuttle12.estuary.tech
 
 [automaton]
 localhost ansible_connection=local
-
