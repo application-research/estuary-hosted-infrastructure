@@ -10,7 +10,7 @@ For most HA triplets, each node can just be updated/rebooted one by one.
 
 The status of these services should be observed on your HAProxy's status page during these restarts. For example: https://prod-haproxy01.estuary.tech:8443/
 
-[IMAGE]
+![Screenshot from 2023-06-29 20-55-41](https://github.com/application-research/estuary-hosted-infrastructure/assets/29645145/dd07fc4d-6b82-4ddf-b4bc-8abcf6c8a3e0)
 
 These services are easy to reset, simply loop over them:
 ```
@@ -83,7 +83,7 @@ $ ssh prod-ehi-db02.estuary.tech -t "sudo apt update && sudo apt upgrade -y && s
 
 The status of these services should be observed on your HAProxy's status page during these restarts. For example: https://prod-haproxy01.estuary.tech:8443/
 
-[IMAGE]
+![Screenshot from 2023-06-29 21-04-29](https://github.com/application-research/estuary-hosted-infrastructure/assets/29645145/8d7bf795-060d-460d-b809-fb5b0398db83)
 
 ```
 $ for i in 01 02 03; do ssh "prod-fwscdn${i}.estuary.tech" -t "sudo apt update && sudo apt upgrade -y && sudo reboot"; done
