@@ -1,5 +1,5 @@
 
-# How to restart HA nodes/services? [IN PROGRESS]
+# How to restart HA nodes/services?
 
 All the services in FDI are designed to be highly-available, but still care must be taken when restarting certain machines/services.
 
