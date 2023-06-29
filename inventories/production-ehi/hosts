@@ -114,7 +114,6 @@ prod-carrier[01:03].estuary.tech
 
 # PostgreSQL clusters
 [postgresql:children]
-prod_ehi_api_db
 prod_ehi_db
 prod_ebi_db
 
