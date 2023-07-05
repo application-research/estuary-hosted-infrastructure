@@ -118,10 +118,10 @@ prod-carrier[01:03].estuary.tech
 
 # Edge-URID Clusters
 [edge_urid_node:children]
-prod_ehi_urid_edge
+prod_ehi_edge_urid
 
-[prod_ehi_urid_edge]
-prod-ehi-urid-edge[01:08].estuary.tech
+[prod_ehi_edge_urid]
+prod-ehi-edge-urid[01:08].estuary.tech
 
 # PostgreSQL clusters
 [postgresql:children]
