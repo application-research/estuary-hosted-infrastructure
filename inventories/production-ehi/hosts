@@ -48,10 +48,14 @@ prod-haproxy[01:03].estuary.tech
 prod-gitea[01:03].estuary.tech
 prod-carrier[01:03].estuary.tech
 prod-swfs-filer[01:04].estuary.tech
+<<<<<<< Updated upstream
 prod-nsqlookupd[01:05].estuary.tech
 
 [prod_garage]
 prod-garage01.estuary.tech ansible_ssh_user=wings
+=======
+prod-estuary-api01.estuary.tech
+>>>>>>> Stashed changes
 
 # Staging CDN
 [prod_fwscdn]
@@ -165,7 +169,7 @@ prod_ehi_db
 prod_ebi_db
 rancher_rke2_controlplane
 rancher_rke2_worker
-prod_ehi_api
+prod_estuary_api
 prod_shuttle
 prod_garage
 
@@ -183,7 +187,7 @@ prod_ehi_db
 prod_ebi_db
 rancher_rke2_controlplane
 rancher_rke2_worker
-prod_ehi_api
+prod_estuary_api
 prod_shuttle
 
 # Legacy Estuary
@@ -192,13 +196,13 @@ estuary_api
 estuary_shuttle
 
 [estuary_api:children]
-prod_ehi_api
+prod_estuary_api
 
 [estuary_shuttle:children]
 prod_shuttle
 
-[prod_ehi_api]
-prod-ehi-api01.estuary.tech
+[prod_estuary_api]
+prod-estuary-api01.estuary.tech
 
 [prod_shuttle]
 prod-shuttle12.estuary.tech
