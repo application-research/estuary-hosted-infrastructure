@@ -2,5 +2,6 @@
 # Production EHI configuration for edge
 edge_node_name: "ehi-edge-urid"
 edge_description: "edge-urid running on Estuary Hosted Infrastructure."
+edge_database_name: "edgeurid-db"
 edge_shared_repo: "/mnt/mfs/services/whypfs/edge-urid"
 delta_node_api: https://delta.estuary.tech
