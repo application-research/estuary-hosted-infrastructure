@@ -2,7 +2,7 @@
 # Default settings for all Edge nodes
 compile_dir: /usr/local/src/edge
 edge_main_dir: /opt/edge
-edge_blockstore_dir: /mnt/mfs/services/whypfs-urid
+edge_blockstore_dir: /mnt/mfs/services/whypfs/edge-urid
 edge_system_user: estuary
 edge_system_group: estuary
 edge_system_home: /var/lib/arg-edge
