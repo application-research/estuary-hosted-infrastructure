@@ -8,6 +8,7 @@ dns_domains:
   - "delta.estuary.tech"
   - "registry.estuary.tech"
   - "receipts.estuary.tech"
+  - "edgeurid.estuary.tech"
   - "s3.estuary.tech"
   - "estuary.tech"
 
