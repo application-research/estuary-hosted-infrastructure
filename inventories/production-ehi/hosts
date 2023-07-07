@@ -12,6 +12,7 @@ vega.estuary.tech ansible_user=root
 10.24.0.2[01:08] ansible_user=root
 
 [moosefs_metalogger]
+prod-moosefs-ml[01:02].estuary.tech
 
 [moosefs_client]
 prod-ehi-delta[01:08].estuary.tech
@@ -48,8 +49,9 @@ prod-haproxy[01:03].estuary.tech
 prod-gitea[01:03].estuary.tech
 prod-carrier[01:03].estuary.tech
 prod-swfs-filer[01:04].estuary.tech
+
+[prod_nsql]
 prod-nsqlookupd[01:05].estuary.tech
-prod-estuary-api01.estuary.tech
 
 [prod_garage]
 prod-garage01.estuary.tech ansible_ssh_user=wings
@@ -152,7 +154,7 @@ rancher_rke2_worker
 prod-phos-k8s-m[01:07].estuary.tech
 
 [rancher_rke2_worker]
-prod-phos-k8s-w[01:40].estuary.tech
+prod-phos-k8s-w[21:40].estuary.tech
 
 [phosphophyllite]
 prod-phos-k8s-m[01:07].estuary.tech
@@ -163,6 +165,7 @@ prod-phos-k8s-w[01:40].estuary.tech
 bastion_servers
 proxmox_hosts
 moosefs_master
+moosefs_metalogger
 loadbalancer
 tls_bastion
 tls_hosts
@@ -176,6 +179,7 @@ rancher_rke2_worker
 prod_estuary_api
 prod_shuttle
 prod_garage
+prod_nsql
 
 # Logtail/Betterstack Clients
 [logtail_clients:children]
