@@ -47,8 +47,10 @@ prod-tls-gen.estuary.tech
 [tls_hosts]
 prod-haproxy[01:03].estuary.tech
 prod-gitea[01:03].estuary.tech
-prod-carrier[01:03].estuary.tech
-prod-swfs-filer[01:04].estuary.tech
+# Currently carriers 2 and 3 are disabled
+#prod-carrier[01:03].estuary.tech
+prod-carrier01.estuary.tech
+prod-ebi-maas01.estuary.tech
 
 [prod_nsql]
 prod-nsqlookupd[01:05].estuary.tech
