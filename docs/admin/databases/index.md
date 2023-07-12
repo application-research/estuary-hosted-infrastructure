@@ -66,19 +66,47 @@ There are two main PostgreSQL clusters operating outside of Kubernetes. These ar
 
 ### List of clusters
 
-* Estuary Hosted Infrastructure (prod-ehi): prod-ehi-db[01:03].estuary.tech
-* Estuary Bootstrap Infrastructure (prod-ebi): prod-ebi-db[01:03].estuary.tech
+* Estuary Hosted Infrastructure (prod-ehi): Hosted on prod-ehi-db[01:03].estuary.tech
+* Estuary Bootstrap Infrastructure (prod-ebi): Hosted on prod-ebi-db[01:03].estuary.tech
 
-### Estuary Hosted Infrastructure (EHI) DB
+#### Estuary Hosted Infrastructure (EHI) DB
 The EHI database cluster runs database services for the following:
 
 * EstuaryV2: Delta, Delta DM, Edge-UR, Edge-URID
 * EstuaryV1: Shuttle 12, Edge Carriers,
 * Gitea
 
-### Estuary Bootstrap Infrastructure (EBI) DB
+#### Estuary Bootstrap Infrastructure (EBI) DB
 The EBI database cluster runs database services for the following:
 
 * AWX automation
 * Metal as a Service (MAAS) machine deployment
 * Nautobot
+
+### Accessing databases - how do I access a database cluster to check on its status?
+SSH into one of the servers that serve the database cluster. Here's an example using EHI:
+
+`ssh ubuntu@prod-ehi-db01.estuary.tech`
+
+Elevate to root:
+
+`sudo su -`
+
+Use `patronictl` to list the database members.
+
+```
+root@prod-ehi-db01:~# patronictl -c /etc/patroni/prod-ehi-db01.estuary.tech.yml list
++ Cluster: prod_ehi_db ------+------------+---------+---------+-----+-----------+
+| Member                     | Host       | Role    | State   |  TL | Lag in MB |
++----------------------------+------------+---------+---------+-----+-----------+
+| prod-ehi-db01.estuary.tech | 10.24.3.20 | Leader  | running | 273 |           |
+| prod-ehi-db02.estuary.tech | 10.24.3.21 | Replica | running | 273 |         0 |
+| prod-ehi-db03.estuary.tech | 10.24.3.22 | Replica | running | 273 |         0 |
++----------------------------+------------+---------+---------+-----+-----------+
+```
+
+### Accessing databases - how do I use a database in a VM cluster?
+
+You can access the databases in the VM clusters using `postgres-ehi.estuary.tech` and `postgres-ebi.estuary.tech` (both are CNAMEs which point at the production HAProxies).
+
+The chosen TCP port is what determines which PostgreSQL cluster you connect to - 51432 for EBI, 52432 for EHI.
