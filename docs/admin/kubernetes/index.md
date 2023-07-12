@@ -1,4 +1,4 @@
-# [Kubernetes and CPI](admin/kubernetes/index.md)
+# Kubernetes and CPI
 
 ## Logging into Kubernetes
 

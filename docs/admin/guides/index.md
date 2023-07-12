@@ -1,4 +1,4 @@
-## [General and Specialised Guides](admin/guides/index.md)
+## General and Specialised Guides
 These are guides that don't (yet) fit in elsewhere in the documentation.
 
 * [Diagnosing Pacemaker clusters including Prod HAProxy](01-diagnosing-pacemaker-clusters.md)
