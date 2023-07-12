@@ -79,6 +79,11 @@ $ ssh prod-ehi-db02.estuary.tech -t "sudo apt update && sudo apt upgrade -y && s
 5) Run patronictl list again to examine if all the nodes are still working.
 
 
+6) After completion also be sure to update the prod-backup-db01 server as it needs to have the exact same version of the pgBackRest package to function:
+
+`$ ssh prod-db-backup01.estuary.tech -t "sudo apt update && sudo apt upgrade -y && sudo reboot"`
+
+
 ## Other HA Services
 
 The status of these services should be observed on your HAProxy's status page during these restarts. For example: https://prod-haproxy01.estuary.tech:8443/

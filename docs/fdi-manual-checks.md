@@ -68,20 +68,24 @@ $ ssh prod-ebi-db01.estuary.tech -t "sudo patronictl -c /etc/patroni/prod-ebi-db
 | prod-ebi-db03.estuary.tech | 10.24.3.3 | Replica | running |    |        16 |
 +----------------------------+-----------+---------+---------+----+-----------+
 
-Examine the RAM usage:
+### Examine the RAM usage:
 
 $ for i in 01 02 03; do ssh "prod-ehi-db${i}.estuary.tech" -t "free -h"; done
+
 $ for i in 01 02 03; do ssh "prod-ebi-db${i}.estuary.tech" -t "free -h"; done
 
-Examine the disk space usage:
+### Examine the disk space usage:
 
 $ for i in 01 02 03; do ssh "prod-ehi-db${i}.estuary.tech" -t "df -h"; done
+
 $ for i in 01 02 03; do ssh "prod-ebi-db${i}.estuary.tech" -t "df -h"; done
 
 
 ## HAProxy
 
 $ for i in 01 02 03; do ssh "prod-haproxy${i}.estuary.tech" -t "sudo crm_mon -r -1 && exit"; done
+
+$ for i in 01 02 03; do ssh "prod-haproxy${i}.estuary.tech" -t "sudo pcs status && exit"; done
 
 $ for i in 01 02 03; do ssh "prod-haproxy${i}.estuary.tech" -t "sudo systemctl status corosync.service && exit"; done
   
@@ -98,5 +102,5 @@ $ for i in 01 02 03 04 05 06 07 08; do ssh "prod-ehi-edge${i}.estuary.tech" -t "
 
 ## Edge-urdi
 
-$ for i in 01 02 03 04 05 06 07 08; do ssh "prod-ehi-edge-urid${i}.estuary.tech" -t "sudo systemctl --no-pager status delta.service && exit"; done
+$ for i in 01 02 03 04 05 06 07 08; do ssh "prod-ehi-edge-urid${i}.estuary.tech" -t "sudo systemctl --no-pager status edge.service && exit"; done
 

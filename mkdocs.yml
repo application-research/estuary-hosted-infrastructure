@@ -1,0 +1,26 @@
+site_name: Filecoin Data Infrastructure
+theme:
+  name: material
+  logo: assets/logo.png
+  features:
+    - navigation.tabs
+    - navigation.tracking
+    - navigation.instant
+nav:
+  - Home: index.md
+  # - Getting started:
+  #   - getting-started.md
+  #   - Installation (initial): deployment/s00-initial.md
+  #   - Installation (Proxmox Groundfloor): deployment/s01-groundfloor.md
+  #   - Installation (Basic services): deployment/s02-basic.md
+  #   - Installation (MAAS): deployment/s03-maas.md
+  #   - Installation (Main services + Kubernetes): deployment/s04-main.md
+  - About: about.md
+  - Basics: admin/basics/index.md
+  - Databases: admin/databases/index.md
+  - Services: admin/services/index.md
+  - Kubernetes: admin/kubernetes/index.md
+  - Rescue: admin/rescue/index.md
+  - Storage: admin/storage/index.md
+  - TLS: admin/tls/index.md
+  - Guides: admin/guides/index.md
