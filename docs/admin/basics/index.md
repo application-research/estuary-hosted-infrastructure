@@ -27,14 +27,26 @@ From time to time, it's necessary to create new virtual machines. You can do thi
 
 * Check out the [ehi-proxmaas](https://github.com/application-research/ehi-proxmaas) repo somewhere you can work on it.
 * Within the ehi-proxmaas project, look under `vars/production-ehi` for the **machine definitions** used to spawn machines.
-* Follow the 
+* Create a machine definition
+* Run the spawn.yml ansible playbook against that machine definition
 
-### To work from Vega
-To spawn machines using ProxMAAS using Vega (one of the Proxmox nodes), ssh root@vega.estuary.tech 
+For further details and the actual commands necessary, consult [the ProxMAAS documentation](proxmaas.md). 
 
-### To work from your local machine
+To spawn machines using ProxMAAS using Vega (one of the Proxmox nodes), ssh to root@vega.estuary.tech, and `cd ehi-proxmaas`. 
 
-## Monitoring
+To set up a local machine to be able to spawn machines, make sure Netbird is installed, then copy `vars/secrets.yml` from `root@vega.estuary.tech:/root/ehi-proxmaas/vars/secrets.yml` to your local copy of the repository, making sure to avoid committing the secrets.
+
+## Monitoring and Logging
+There are a number of things that need monitoring throughout the infrastructure. We have various tools for this purpose. Here's a few of them:
+
+* Our [centralised monitoring solution](https://monitoring.estuary.tech) is provided by CheckMK Enterprise. A VM hosted on Vultr Cloud lives outside the infrastructure and monitors all of our hosts for issues, everything from dropped packets to disks filling and services not working.
+
+* The [MooseFS CGI monitor](http://mfsmaster.estuary.tech:9425) allows us to keep an eye on MooseFS and should be checked frequently for warnings and error messages and dead disks and such. Efforts are underway to integrate information from the MooseFS API into CheckMK and open source those checks.
+
+* The [Ceph dashboard](https://proxmox.estuary.tech:8006/#v1:0:=node%2Faltair:4:38::::::38) allows us to keep an eye on Ceph and its health, which should be tended to carefully as Ceph underpins ***all VMs and all workloads running on FDI***
+
+* [ArgoCD](https://argocd.estuary.tech) provides a view into Customer Provisioned Infrastructure (Phosphophyllite), and can be used to see at a glance whether any customers' Kubernetes resources appear "out of sync" with what they should be, which could indicate problems.
+
 ## Backups
 There are two core backup services that run in FDI at the moment.
 
@@ -44,7 +56,7 @@ These are:
 * WAL-G @ Kubernetes [via GarageHQ] (for PostgreSQLs running as Kubernetes pods)
 
 ### pgBackRest
-
+pgBackRest is configured on both 
 
 
 ## Security & Patching

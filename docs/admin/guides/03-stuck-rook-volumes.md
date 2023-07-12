@@ -44,7 +44,7 @@ In Rancher, go to `More Resources -> Storage -> VolumeAttachments` and open it.
 
 Search for the volume's ID on the right, in this case "1b4b4d14".
 
-![Alt text](03-screen04.png)
+![Alt text](03-screen05.png)
 
 Here we can see that the volume is attached on node `prod-phos-k8s-wxl02` in this case. Take a note of which node your volume is attached to.
 
@@ -55,7 +55,7 @@ In a new tab, go back to `Workloads -> Pods` and clear any filters you have set 
 
 Search for the name of your node using the `Filter` box to view only pods running on that node.
 
-Look for `csi-rbdplugin-SOMESTRING`, then using the three dots select "> Execute Shell" for that pod.
+Look for `csi-rbdplugin-SOMESTRING` (NB: do not use the one with "provisioner" in the name), then using the three dots select "> Execute Shell" for that pod.
 
 In the dropdown in the bottom left, select `csi-rbdplugin` to get a shell into the right container.
 
@@ -77,4 +77,3 @@ Now, roughly at the same time, go back to your tab from earlier with the VolumeA
 ```
 
 Finally, delete the original pod that was having issues and let it naturally re-create.
-

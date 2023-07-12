@@ -6,6 +6,10 @@ theme:
     - navigation.tabs
     - navigation.tracking
     - navigation.instant
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 nav:
   - Home: index.md
   # - Getting started:
@@ -16,11 +20,18 @@ nav:
   #   - Installation (MAAS): deployment/s03-maas.md
   #   - Installation (Main services + Kubernetes): deployment/s04-main.md
   - About: about.md
-  - Basics: admin/basics/index.md
+  - Basics: 
+    - admin/basics/index.md
+    - ProxMAAS: admin/basics/proxmaas.md
   - Databases: admin/databases/index.md
   - Services: admin/services/index.md
   - Kubernetes: admin/kubernetes/index.md
   - Rescue: admin/rescue/index.md
   - Storage: admin/storage/index.md
   - TLS: admin/tls/index.md
-  - Guides: admin/guides/index.md
+  - Guides: 
+    - admin/guides/index.md
+    - Diagnosing Pacemaker clusters including Prod HAProxy: admin/guides/01-diagnosing-pacemaker-clusters.md
+    - "Ceph: Rebalancing Ceph OSDs": admin/guides/02-rebalancing-ceph-osds.md
+    - "Kubernetes: Fixing stuck Rook.io volumes which are preventing containers from starting": admin/guides/03-stuck-rook-volumes.md
+
