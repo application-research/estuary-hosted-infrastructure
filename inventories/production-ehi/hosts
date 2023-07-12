@@ -51,6 +51,7 @@ prod-gitea[01:03].estuary.tech
 #prod-carrier[01:03].estuary.tech
 prod-carrier01.estuary.tech
 prod-ebi-maas01.estuary.tech
+prod-dns[01:03].estuary.tech
 
 [prod_nsql]
 prod-nsqlookupd[01:05].estuary.tech
