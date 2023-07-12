@@ -8,7 +8,7 @@ theme:
     - navigation.instant
 nav:
   - Home: index.md
-  # - Getting started: 
+  # - Getting started:
   #   - getting-started.md
   #   - Installation (initial): deployment/s00-initial.md
   #   - Installation (Proxmox Groundfloor): deployment/s01-groundfloor.md
