@@ -25,8 +25,6 @@ so ana's chart should go from 0.1.1 to 0.2.0
 
 ```
 ~/customer-est-ana/kubernetes$ helm dependency update
-WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/pcadmin/.kube/config
-WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /home/pcadmin/.kube/config
 Getting updates for unmanaged Helm repositories...
 ...Successfully got an update from the "https://application-research.github.io/fws-cpi-helm" chart repository
 ...Successfully got an update from the "https://application-research.github.io/fws-cpi-helm" chart repository
