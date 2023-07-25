@@ -14,8 +14,9 @@ The status of these services should be observed on your HAProxy's status page du
 
 These services are easy to reset, simply loop over them:
 ```
-$ for i in 01 02 03 04 05 06 07 08; do ssh "prod-ehi-delta${i}.estuary.tech" -t "sudo apt update && sudo apt upgrade -y && sudo reboot"; done
-$ for i in 01 02 03 04 05 06 07 08; do ssh "prod-ehi-edge${i}.estuary.tech" -t "sudo apt update && sudo apt upgrade -y && sudo reboot"; done
+$ for i in 01 02 03 04 05 06 07 08; do ssh "prod-ehi-delta${i}.estuary.tech" -t "sudo apt update && sudo apt upgrade -y && sudo systemctl stop delta.service && sudo reboot"; done
+$ for i in 01 02 03 04 05 06 07 08; do ssh "prod-ehi-edge${i}.estuary.tech" -t "sudo apt update && sudo apt upgrade -y && sudo systemctl stop edge.service && sudo reboot"; done
+$ for i in 01 02 03 04 05 06 07 08; do ssh "prod-ehi-edge-urid${i}.estuary.tech" -t "sudo apt update && sudo apt upgrade -y && sudo systemctl stop edge.service && sudo reboot"; done
 ```
 
 
@@ -93,4 +94,5 @@ The status of these services should be observed on your HAProxy's status page du
 ```
 $ for i in 01 02 03; do ssh "prod-fwscdn${i}.estuary.tech" -t "sudo apt update && sudo apt upgrade -y && sudo reboot"; done
 $ for i in 01 02 03; do ssh "prod-carrier${i}.estuary.tech" -t "sudo apt update && sudo apt upgrade -y && sudo reboot"; done
+$ for i in 01 02 03 04 05; do ssh "prod-nsqlookupd${i}.estuary.tech" -t "sudo apt update && sudo apt upgrade -y && sudo reboot"; done
 ```
