@@ -6,6 +6,7 @@ env_name: production
 dns_domains:
   - "fdi.network"
   - "motion.fdi.network"
+  - "singularity.fdi.network"
   - "estuary.tech"
   - "edge.estuary.tech"
   - "edgeurid.estuary.tech"
