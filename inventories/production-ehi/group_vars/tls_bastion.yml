@@ -8,6 +8,8 @@ dns_domains:
   - "motion.fdi.network"
   - "estuary.tech"
   - "edge.estuary.tech"
+  - "edgeurid.estuary.tech"
+  - "registry.estuary.tech"
   - "delta.estuary.tech"
   - "s3.estuary.tech"
 
