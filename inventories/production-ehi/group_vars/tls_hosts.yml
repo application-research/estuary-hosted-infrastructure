@@ -4,10 +4,12 @@ env_name: production
 
 # Domain to get a wildcard certificate for. Don't include the *. at the start.
 dns_domains:
+  - "fdi.network"
+  - "motion.fdi.network"
+  - "estuary.tech"
   - "edge.estuary.tech"
   - "delta.estuary.tech"
-  - "registry.estuary.tech"
-  - "estuary.tech"
+  - "s3.estuary.tech"
 
 # Email used for Let's Encrypt renewal notices. Should match the name of your Cloudflare account.
 cloudflare_email: wings@protocol.ai
